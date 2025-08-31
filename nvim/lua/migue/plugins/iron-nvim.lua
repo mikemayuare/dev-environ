@@ -16,24 +16,24 @@ return {
 					sh = {
 						command = { "fish" },
 					},
-
 					python = {
 						command = function(meta)
 							-- Try $VIRTUAL_ENV first
 							local venv = os.getenv("VIRTUAL_ENV")
 							if venv then
-								return { venv .. "/bin/python" }
+								-- Use ipython from the virtual environment
+								return { venv .. "/bin/ipython", "--no-autoindent" }
 							end
 
-							-- Try `.venv/bin/python` in project root
+							-- Try `.venv/bin/ipython` in project root
 							local cwd = vim.fn.getcwd()
-							local venv_python = cwd .. "/.venv/bin/python"
-							if vim.fn.executable(venv_python) == 1 then
-								return { venv_python }
+							local venv_ipython = cwd .. "/.venv/bin/ipython"
+							if vim.fn.executable(venv_ipython) == 1 then
+								return { venv_ipython, "--no-autoindent" }
 							end
 
-							-- Fallback
-							return { "python3" }
+							-- Fallback to global ipython
+							return { "ipython", "--no-autoindent" }
 						end,
 						format = require("iron.fts.common").bracketed_paste_python,
 						block_dividers = { "# %%", "#%%" },
@@ -43,7 +43,7 @@ return {
 				-- How the repl window will be displayed
 				-- This uses a split (not float!)
 				-- Example: vertical split of 50 columns on the right
-				repl_open_cmd = view.split.vertical.botright(50),
+				repl_open_cmd = view.split.vertical.botright(80),
 			},
 
 			keymaps = {
