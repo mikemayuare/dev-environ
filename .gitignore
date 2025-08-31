@@ -85,3 +85,4 @@ dist/
 !alacritty/**
 !ghostty/**
 !kitty/**
+!README.md
