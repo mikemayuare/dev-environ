@@ -1,0 +1,22 @@
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "MesloLGLDZ Nerd Font Mono"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+
+[window.padding]
+x = 8
+y = 8
+
+[general]
+live_config_reload = true
+import = ["dracula.toml"]
+
+[env]
+TERM = "xterm-256color"

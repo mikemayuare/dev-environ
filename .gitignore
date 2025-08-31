@@ -1,0 +1,87 @@
+# ignore everything
+*
+
+# But allow directories (so we can selectively re-include files inside)
+!*/
+
+# =========================
+# OS / System files
+# =========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.apdisk
+
+# Linux
+*~
+.nfs*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Python
+# =========================
+# Environments
+.venv/
+venv/
+env/
+ENV/
+Pipfile.lock
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.tox/
+.hypothesis/
+
+# IDE-specific
+.vscode/
+.idea/
+*.iml
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# =========================
+# Lua
+# =========================
+*.rock
+*.rockspec
+*.luac
+
+# =========================
+# Miscellaneous
+# =========================
+*.log
+*.bak
+*.swp
+*.swo
+
+# =========================
+# Includes (explicitly tracked)
+# =========================
+!.gitignore
+!nvim/**
+!tmux/**
+!alacritty/**
+!ghostty/**
+!kitty/**
