@@ -1,9 +1,3 @@
-# ignore everything
-*
-
-# But allow directories (so we can selectively re-include files inside)
-!*/
-
 # =========================
 # OS / System files
 # =========================
@@ -75,15 +69,3 @@ dist/
 *.bak
 *.swp
 *.swo
-
-# =========================
-# Includes (explicitly tracked)
-# =========================
-!.gitignore
-!nvim/**
-!tmux/**
-!alacritty/**
-!ghostty/**
-!kitty/**
-!fish/**
-!README.md

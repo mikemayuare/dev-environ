@@ -43,8 +43,8 @@
 # resize-overlay-duration = 4s 200ms
 
 theme = Dracula
-font-size = 14
-font-family = "Fira Code"
+font-size = 12
+font-family = "JetBrainsMono Nerd Font"
 font-feature = "liga"
 shell-integration-features = no-cursor
 cursor-style = block
