@@ -9,7 +9,7 @@ function nvm
     bass source $NVM_DIR/nvm.sh --no-use \; nvm $argv
 end
 
-oh-my-posh init fish --config ~/.config/fish/ohmyposh_themes/atomic-dracula.omp.json | source
+oh-my-posh init fish --config ~/.config/fish/themes/dracula-minimal.omp.json | source
 
 # Load nvm and use default node version
 bass source $NVM_DIR/nvm.sh --no-use ';' nvm use default > /dev/null

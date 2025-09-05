@@ -55,7 +55,7 @@ return {
 				send_line = "<space>sl",
 				send_paragraph = "<space>sp",
 				send_until_cursor = "<space>su",
-				send_mark = "<space>sm",
+				send_mark = "<space>ms",
 				send_code_block = "<space>sb",
 				send_code_block_and_move = "<space>sn",
 				mark_motion = "<space>mc",
