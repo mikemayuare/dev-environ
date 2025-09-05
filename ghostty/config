@@ -48,6 +48,8 @@ font-family = "Fira Code"
 font-feature = "liga"
 shell-integration-features = no-cursor
 cursor-style = block
-background-opacity = 0.85
+background-opacity = 0.95
+background-blur = true
 window-padding-x = 8
 window-padding-y = 8
+
