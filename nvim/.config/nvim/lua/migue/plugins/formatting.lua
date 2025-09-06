@@ -20,6 +20,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff" },
+				sql = { "sqruff" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
