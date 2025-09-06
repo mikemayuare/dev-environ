@@ -69,3 +69,8 @@ dist/
 *.bak
 *.swp
 *.swo
+
+# =========================
+# tmux plugins
+# =========================
+tmux/.config/tmux/plugins
