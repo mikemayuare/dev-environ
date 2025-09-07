@@ -4,3 +4,13 @@
 vim.opt.relativenumber = true
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
+
+-- for sql
+vim.filetype.add({
+  extension = {
+    sql = "sql",
+  },
+  pattern = {
+    [".*%.bq"] = "sql", -- if you use .bq extension
+  },
+})
