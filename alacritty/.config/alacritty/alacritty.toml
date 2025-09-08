@@ -1,4 +1,4 @@
-general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
+general.import = ["~/.config/omarchy/current/theme/alacritty.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -7,7 +7,7 @@ TERM = "xterm-256color"
 normal = { family = "JetBrainsMonoNL Nerd Font Mono" }
 bold = { family = "JetBrainsMonoNL Nerd Font Mono" }
 italic = { family = "JetBrainsMonoNL Nerd Font Mono" }
-size = 9
+size = 12
 
 [window]
 padding.x = 14
@@ -15,6 +15,4 @@ padding.y = 14
 decorations = "None"
 
 [keyboard]
-bindings = [
-{ key = "F11", action = "ToggleFullscreen" }
-]
+bindings = [{ key = "F11", action = "ToggleFullscreen" }]
