@@ -50,12 +50,16 @@
           "type": "status",
           "style": "plain",
           "foreground": "#50FA7B",
-          "foreground_templates": ["{{ if gt .Code 0 }}#FF5555{{ end }}"],
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#FF5555{{ end }}"
+          ],
           "template": " x{{ reason .Code }}"
         },
         {
           "foreground": "#6272A4",
-          "foreground_templates": ["{{ if gt .Code 0 }}#FF5555{{ end }}"],
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#FF5555{{ end }}"
+          ],
           "properties": {
             "always_enabled": true
           },
@@ -71,12 +75,24 @@
       "newline": true,
       "segments": [
         {
+          "type": "os",
+          "style": "plain",
+          "foreground": "#8BE9FD",
+          "template": " {{ .Icon }}"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#8BE9FD",
+          "template": " {{ .HostName }}"
+        },
+        {
           "foreground": "#FF79C6",
           "properties": {
             "style": "full"
           },
           "style": "plain",
-          "template": "\ue5ff {{ .Path }}",
+          "template": " \ue5ff {{ .Path }}",
           "type": "path"
         }
       ],
