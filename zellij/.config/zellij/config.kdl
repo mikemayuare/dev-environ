@@ -301,7 +301,7 @@ theme "dracula"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
+// default_layout "compact"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
@@ -530,3 +530,12 @@ pane_frames false
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+
+// plugins
+plugins {
+    nvim-nav location="file:/home/migue/.config/zellij/plugins/zellij-nvim-nav-plugin.wasm"
+}
+
+load_plugins {
+    nvim-nav
+}
