@@ -43,7 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 theme = Dracula
-font-size = 12
+font-size = 16
 font-family = "JetBrainsMono Nerd Font"
 font-feature = "liga"
 shell-integration-features = no-cursor
@@ -52,4 +52,4 @@ background-opacity = 0.95
 background-blur = true
 window-padding-x = 14
 window-padding-y = 14
-
+macos-titlebar-style = hidden
