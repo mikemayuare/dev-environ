@@ -26,12 +26,10 @@ return {
               plugins = {
                 -- Enable linting plugins for warnings
                 pycodestyle = {
-                  enabled = true,
-                  maxLineLength = 88,
-                  ignore = { "E501" }, -- Let ruff handle line length
+                  enabled = false,
                 },
-                mccabe = { enabled = true },
-                pyflakes = { enabled = true },
+                mccabe = { enabled = false },
+                pyflakes = { enabled = false },
 
                 -- Keep documentation features
                 jedi_hover = { enabled = true },
