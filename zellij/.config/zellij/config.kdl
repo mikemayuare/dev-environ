@@ -261,12 +261,15 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    nvim-nav location="file:/home/migue/.config/zellij/plugins/zellij-nvim-nav-plugin.wasm"
+
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+    nvim-nav
 }
 web_client {
     font "monospace"
@@ -530,12 +533,3 @@ pane_frames false
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
-
-// plugins
-plugins {
-    nvim-nav location="file:/home/migue/.config/zellij/plugins/zellij-nvim-nav-plugin.wasm"
-}
-
-load_plugins {
-    nvim-nav
-}
