@@ -13,3 +13,6 @@ oh-my-posh init fish --config ~/.config/fish/themes/dracula-minimal.omp.json | s
 
 # Load nvm and use default node version
 bass source $NVM_DIR/nvm.sh --no-use ';' nvm use default > /dev/null
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/migue/google-cloud-sdk/path.fish.inc' ]; . '/home/migue/google-cloud-sdk/path.fish.inc'; end

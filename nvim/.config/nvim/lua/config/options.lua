@@ -14,3 +14,9 @@ vim.filetype.add({
     [".*%.bq"] = "sql", -- if you use .bq extension
   },
 })
+
+-- Zellij auto lock
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  command = "silent !zellij action switch-mode normal",
+})
