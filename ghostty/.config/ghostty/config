@@ -42,7 +42,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = Dracula
+theme = catppuccin-frappe
 font-size = 14
 font-family = "CaskaydiaMono Nerd Font"
 font-feature = liga
