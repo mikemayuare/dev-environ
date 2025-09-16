@@ -28,7 +28,7 @@
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-dap": { "branch": "master", "commit": "7523676a4be17644587aa47e4d42f6f7646d4727" },
-  "nvim-dap-python": { "branch": "master", "commit": "030385d03363988370adaa5cf21fa465daddb088" },
+  "nvim-dap-python": { "branch": "master", "commit": "bfe572e4458e0ac876b9539a1e9f301c72db8ea0" },
   "nvim-dap-ui": { "branch": "master", "commit": "cf91d5e2d07c72903d052f5207511bf7ecdb7122" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6" },
   "nvim-lint": { "branch": "master", "commit": "f126af5345c7472e9a0cdbe1d1a29209be72c4c4" },
@@ -49,7 +49,7 @@
   "vim-dadbod": { "branch": "master", "commit": "e95afed23712f969f83b4857a24cf9d59114c2e6" },
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
   "vim-dadbod-ui": { "branch": "master", "commit": "e8b53c0f3aa6e6127ac2a2d2071d9aade6c6e373" },
-  "vimtex": { "branch": "master", "commit": "5626f960be1c0fffeb780d48718709d4830b2c62" },
+  "vimtex": { "branch": "master", "commit": "77f31bd02cec678823c8614e6400db97390b5ce7" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "zellij-nav.nvim": { "branch": "main", "commit": "91cc2a642d8927ebde50ced5bf71ba470a0fc116" }
 }
