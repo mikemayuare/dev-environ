@@ -11,8 +11,7 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # background
-background-opacity = 0.85
-background-blur = true
+background-opacity = 0.80
 
 # Window
 window-padding-x = 14

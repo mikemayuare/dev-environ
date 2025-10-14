@@ -9,10 +9,10 @@ function nvm
     bass source $NVM_DIR/nvm.sh --no-use \; nvm $argv
 end
 
-if set -q ZELLIJ
-else
-    zellij
-end
+# if set -q ZELLIJ
+# else
+#     zellij
+# end
 
 # starship init fish | source
 oh-my-posh init fish --config ~/.config/fish/themes/catppuccin-frappe-minimal.omp.json | source
