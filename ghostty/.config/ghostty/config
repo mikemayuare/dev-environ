@@ -42,14 +42,17 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = catppuccin-frappe
+theme = Catppuccin Mocha
 font-size = 14
 font-family = "CaskaydiaMono Nerd Font"
 font-feature = liga
 shell-integration-features = no-cursor
 cursor-style = block
-background-opacity = 0.95
-background-blur = true
+background-opacity = 0.90
+background-blur = false
 window-padding-x = 14
 window-padding-y = 14
 macos-titlebar-style = hidden
+
+# unbind new tab since it has no decoration
+keybind = super+t=unbind
