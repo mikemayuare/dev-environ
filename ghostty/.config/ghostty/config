@@ -1,9 +1,8 @@
 # Dynamic theme colors
 config-file = "~/.config/omarchy/current/theme/ghostty.conf"
 
-font-size = 14
-font-family = "JetBrainsMono Nerd Font"
-font-feature = liga
+font-size = 16
+font-family = "FantasqueSansM Nerd Font Mono"
 
 # cursor
 cursor-style-blink = false
@@ -11,7 +10,7 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # background
-background-opacity = 0.80
+background-opacity = 0.60
 
 # Window
 window-padding-x = 14
