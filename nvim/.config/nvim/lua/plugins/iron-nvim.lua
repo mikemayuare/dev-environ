@@ -34,7 +34,7 @@ return {
         -- Send selections to the DAP repl if an nvim-dap session is running.
         dap_integration = true,
         -- How the repl window will be displayed
-        repl_open_cmd = view.bottom(0.3),
+        repl_open_cmd = view.split.botright(0.4),
       },
 
       -- Iron doesn't set keymaps by default anymore.
@@ -65,6 +65,9 @@ return {
         italic = true,
       },
       ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+      env = {
+        BROWSER = "firefox", -- or your preferred browser
+      },
     })
 
     -- iron also has a list of commands, see :h iron-commands for all available commands
