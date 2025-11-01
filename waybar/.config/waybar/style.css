@@ -3,12 +3,10 @@
 * {
   background-color: @background;
   color: @foreground;
-
-  border: none;
   border-radius: 20;
   min-height: 0;
-  font-family: 'FantasqueSansM Nerd Font Mono';
-  font-size: 22px;
+  font-family: 'CaskaydiaCove Nerd Font';
+  font-size: 16px;
 }
 
 .modules-left {
