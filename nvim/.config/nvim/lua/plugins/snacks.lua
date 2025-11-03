@@ -18,7 +18,7 @@ return {
           },
         },
         files = {
-          hidden = false, -- set to true to include hidden files
+          hidden = true, -- set to true to include hidden files
         },
       },
     },
