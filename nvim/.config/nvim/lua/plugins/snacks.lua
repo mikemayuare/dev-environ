@@ -3,13 +3,24 @@ return {
   opts = {
     explorer = {
       hidden = true,
-      position = "right", -- or "left" (default), "top", "bottom", "float"
       filter = function(entry)
         return entry.name ~= ".DS_Store"
       end,
     },
     picker = {
-      hidden = true,
+      sources = {
+        explorer = {
+          -- Notice the nested layout.layout for position
+          layout = {
+            layout = {
+              position = "right",
+            },
+          },
+        },
+        files = {
+          hidden = false, -- set to true to include hidden files
+        },
+      },
     },
   },
 }
