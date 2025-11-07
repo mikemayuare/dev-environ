@@ -4,7 +4,7 @@
 vim.opt.relativenumber = true
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
-
+vim.opt.guicursor = "i:hor20"
 -- for sql
 vim.filetype.add({
   extension = {

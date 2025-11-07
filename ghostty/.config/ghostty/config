@@ -41,18 +41,23 @@
 # # which is explained in the docs for that config option.
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
+# Blur radius (higher = more blur)
+background-blur-radius = 30
 
-theme = Catppuccin Mocha
-font-size = 14
-font-family = "CaskaydiaMono Nerd Font"
+# Opacity for translucency
+background-opacity = 0.90
+
+theme = Nord
+font-size = 20
+font-family = "CaskaydiaCove Nerd Font"
 font-feature = liga
 shell-integration-features = no-cursor
 cursor-style = block
-background-opacity = 0.90
-background-blur = false
+# background-blur = true
 window-padding-x = 14
 window-padding-y = 14
 macos-titlebar-style = hidden
+link-previews = true
 
 # unbind new tab since it has no decoration
 keybind = super+t=unbind

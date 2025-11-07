@@ -293,7 +293,7 @@ web_client {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "nord"
+theme "catppuccin-mocha"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -312,8 +312,12 @@ default_shell "fish"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
- 
+default_layout "default_layout"
+ ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
