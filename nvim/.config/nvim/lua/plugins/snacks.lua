@@ -8,9 +8,10 @@ return {
       end,
     },
     picker = {
+      -- Enable hidden files globally for picker
+      hidden = true,
       sources = {
         explorer = {
-          -- Notice the nested layout.layout for position
           layout = {
             layout = {
               position = "right",
@@ -18,9 +19,24 @@ return {
           },
         },
         files = {
-          hidden = true, -- set to true to include hidden files
+          hidden = true,
+        },
+      },
+    },
+    styles = {
+      picker = {
+        wo = {
+          cursorline = true,
         },
       },
     },
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+
+    -- Set highlights after Snacks is loaded
+    vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#88C0D0" })
+    vim.api.nvim_set_hl(0, "Directory", { fg = "#88C0D0", bold = true })
+    vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88" })
+  end,
 }
