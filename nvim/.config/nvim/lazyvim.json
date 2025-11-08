@@ -1,8 +1,12 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.mini-surround",
+    "lazyvim.plugins.extras.coding.neogen",
+    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
-    "lazyvim.plugins.extras.editor.neo-tree",
+    "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.editor.snacks_explorer",
     "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.json",
@@ -11,11 +15,13 @@
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.tex",
     "lazyvim.plugins.extras.lang.toml",
-    "lazyvim.plugins.extras.util.dot"
+    "lazyvim.plugins.extras.util.dot",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.util.octo"
   ],
   "install_version": 8,
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "11866"
   },
   "version": 8
 }

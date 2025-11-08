@@ -1,8 +1,9 @@
+-- ~/.config/nvim/lua/plugins/theme.lua
 return {
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "tokyonight",
-		},
-	},
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nord",
+    },
+  },
 }

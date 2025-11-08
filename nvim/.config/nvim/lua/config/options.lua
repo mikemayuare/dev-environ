@@ -4,7 +4,7 @@
 vim.opt.relativenumber = true
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
-
+vim.opt.guicursor = "i:hor20"
 -- for sql
 vim.filetype.add({
   extension = {
@@ -13,4 +13,10 @@ vim.filetype.add({
   pattern = {
     [".*%.bq"] = "sql", -- if you use .bq extension
   },
+})
+
+-- Zellij auto lock
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  command = "silent !zellij action switch-mode normal",
 })
