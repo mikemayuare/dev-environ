@@ -33,7 +33,6 @@ return {
         filename = filename .. ".ipynb"
       end
 
-  lazy = false,
       -- Create minimal notebook structure as properly formatted JSON
       local notebook_json = [[{
  "cells": [
