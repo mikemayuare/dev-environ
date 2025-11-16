@@ -20,3 +20,6 @@ resize-overlay = never
 
 # Keyboard bindings
 keybind = f11=toggle_fullscreen
+
+# windoq decoration
+window-decoration = none
