@@ -42,7 +42,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 # Blur radius (higher = more blur)
-background-blur-radius = 30
+# background-blur-radius = 30
 
 # Opacity for translucency
 background-opacity = 0.90
