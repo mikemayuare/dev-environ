@@ -1,10 +1,10 @@
 return {
   "Vigemus/iron.nvim",
+  enabled = true,
   config = function()
     local iron = require("iron.core")
     local view = require("iron.view")
     local common = require("iron.fts.common")
-
     iron.setup({
       config = {
         -- Whether a repl should be discarded or not
@@ -20,7 +20,12 @@ return {
             command = { "ipython" },
             format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
-            env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
+            -- env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
+          },
+          -- Add quarto support - it uses Python's ipython
+          quarto = {
+            command = { "ipython" },
+            format = common.bracketed_paste_python,
           },
         },
         -- set the file type of the newly created repl to ft
@@ -36,7 +41,6 @@ return {
         -- How the repl window will be displayed
         repl_open_cmd = view.split.botright(0.4),
       },
-
       -- Iron doesn't set keymaps by default anymore.
       -- You can set them here or manually add keymaps to the functions in iron.core
       keymaps = {
@@ -69,7 +73,6 @@ return {
         BROWSER = "firefox", -- or your preferred browser
       },
     })
-
     -- iron also has a list of commands, see :h iron-commands for all available commands
     -- Place custom keymaps here as well
     vim.keymap.set("n", "<space>jf", "<cmd>IronFocus<cr>", { desc = "Iron: Focus REPL" })
