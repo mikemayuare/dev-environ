@@ -5,7 +5,7 @@
   color: @foreground;
   border-radius: 20;
   min-height: 0;
-  font-family: 'CaskaydiaCove Nerd Font';
+  font-family: 'JetBrainsMonoNL Nerd Font';
   font-size: 16px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 #custom-expand-icon {
-  margin-right: 20px;
+  margin-right: 18px;
 }
 
 tooltip {

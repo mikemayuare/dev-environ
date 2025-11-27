@@ -6,6 +6,14 @@ return {
       lspFeatures = {
         enabled = true,
         chunks = "curly",
+        languages = { "python", "r", "julia", "bash" },
+        diagnostics = {
+          enabled = true,
+          triggers = { "BufWritePost" },
+        },
+        completion = {
+          enabled = true,
+        },
       },
       codeRunner = {
         enabled = true,
@@ -15,9 +23,21 @@ return {
     dependencies = {
       -- For language features in code cells
       "jmbuhr/otter.nvim",
+      "neovim/nvim-lspconfig",
     },
     config = function(_, opts)
       require("quarto").setup(opts)
+
+      -- Setup otter for embedded language support
+      local otter = require("otter")
+
+      -- Auto-activate otter when entering quarto files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "quarto", "markdown" },
+        callback = function()
+          otter.activate({ "python", "r", "julia", "bash" }, true, true, nil)
+        end,
+      })
 
       -- Quarto keybindings for running code
       local runner = require("quarto.runner")
@@ -26,6 +46,7 @@ return {
       vim.keymap.set("n", "<leader>iA", runner.run_all, { desc = "run all cells", silent = true })
       vim.keymap.set("n", "<leader>il", runner.run_line, { desc = "run line", silent = true })
       vim.keymap.set("v", "<leader>i", runner.run_range, { desc = "run visual range", silent = true })
+
       -- Run all cells of all languages
       vim.keymap.set("n", "<leader>iR", function()
         runner.run_all(true)
@@ -40,9 +61,13 @@ return {
       vim.keymap.set("n", "<leader>ir", function()
         vim.cmd("!quarto render %")
       end, { desc = "render quarto document" })
+
+      -- Keybinding to manually activate otter
+      vim.keymap.set("n", "<leader>io", function()
+        otter.activate({ "python", "r", "julia", "bash" }, true, true, nil)
+      end, { desc = "activate otter for code chunks" })
     end,
   },
-
   { -- Paste images from clipboard or drag-and-drop
     "HakonHarnes/img-clip.nvim",
     event = "BufEnter",
@@ -73,7 +98,6 @@ return {
       vim.keymap.set("n", "<leader>ii", ":PasteImage<cr>", { desc = "insert [i]mage from clipboard" })
     end,
   },
-
   { -- Preview LaTeX equations inline
     "jbyuki/nabla.nvim",
     keys = {

@@ -35,29 +35,29 @@ return {
 
       -- Create minimal notebook structure as properly formatted JSON
       local notebook_json = [[{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "name": "python",
-   "version": "3.10.0"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}]]
+        "cells": [
+          {
+          "cell_type": "code",
+          "execution_count": null,
+          "metadata": {},
+          "outputs": [],
+          "source": []
+          }
+        ],
+        "metadata": {
+          "kernelspec": {
+          "display_name": "Python 3",
+          "language": "python",
+          "name": "python3"
+          },
+          "language_info": {
+          "name": "python",
+          "version": "3.10.0"
+          }
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5
+        }]]
 
       -- Write the file
       vim.fn.writefile(vim.split(notebook_json, "\n"), filename)

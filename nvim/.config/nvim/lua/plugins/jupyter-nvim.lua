@@ -6,6 +6,7 @@ return {
     config = function()
       require("jupyter").setup({
         -- Optional configuration (see Configuration section)
+        python_cmd = ".venv/bin/python",
       })
     end,
   },

@@ -2,18 +2,19 @@ return {
   -- Nord colorscheme
   {
     "shaunsingh/nord.nvim",
+    enabled = false,
     lazy = false, -- load immediately (so the colorscheme is ready)
     priority = 1000, -- ensure it's setup early
     config = function()
       -- Nord options (must be set before colorscheme)
-      vim.g.nord_disable_background = false
+      vim.g.nord_disable_background = true
       vim.g.nord_cursorline = true
       vim.g.nord_contrast = true
       vim.g.nord_borders = true
       vim.g.nord_enable_sidebar_background = false
 
       -- Apply the colorscheme
-      -- vim.cmd("colorscheme nord")
+      vim.cmd("colorscheme nord")
     end,
   },
 

@@ -18,6 +18,8 @@ end
 
 # aliases
 alias nvs='nvim $(fzf --preview="bat --color=always {}")'
+alias nv='nvim'
+alias cat='bat'
 
 # eza
 if command -v eza &>/dev/null
@@ -26,3 +28,8 @@ if command -v eza &>/dev/null
     alias lt='eza --tree --level=2 --long --icons --git'
     alias lta='lt -a'
 end
+
+# ~/.tmux/plugins
+fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
+# ~/.config/tmux/plugins
+fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin

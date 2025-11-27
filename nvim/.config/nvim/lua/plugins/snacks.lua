@@ -70,5 +70,7 @@ return {
     vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#88C0D0" })
     vim.api.nvim_set_hl(0, "Directory", { fg = "#88C0D0", bold = true })
     vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88" })
+
+    vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { fg = "#D8DEE9", bold = false }) -- Set to Nord's light gray/white for high contrast
   end,
 }
