@@ -2,7 +2,7 @@
 config-file = "~/.config/omarchy/current/theme/ghostty.conf"
 
 font-size = 14
-font-family = "CaskaydiaCove Nerd Font"
+font-family = "JetBrainsMonoNL Nerd Font"
 
 # cursor
 cursor-style-blink = true
@@ -10,7 +10,7 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # background
-background-opacity = 0.95
+background-opacity = 0.85
 
 # Window
 window-padding-x = 14
@@ -23,3 +23,6 @@ keybind = f11=toggle_fullscreen
 
 # windoq decoration
 window-decoration = none
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
