@@ -17,14 +17,15 @@ return {
             command = { "fish" },
           },
           python = {
-            command = { "ipython" },
+            format = common.bracketed_paste_python,
+            command = { "ipython", "--no-autoindent" },
             format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
-            -- env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
+            env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
           },
           -- Add quarto support - it uses Python's ipython
           quarto = {
-            command = { "ipython" },
+            command = { "ipython", "--no-autoindent" },
             format = common.bracketed_paste_python,
           },
         },
