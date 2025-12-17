@@ -20,6 +20,7 @@ end
 alias nvs='nvim $(fzf --preview="bat --color=always {}")'
 alias nv='nvim'
 alias cat='bat'
+alias y='yazi'
 
 # eza
 if command -v eza &>/dev/null
