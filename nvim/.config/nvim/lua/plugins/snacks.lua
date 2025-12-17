@@ -4,7 +4,13 @@ return {
     explorer = {
       hidden = true,
       filter = function(entry)
-        return entry.name ~= ".DS_Store"
+        local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
+        for _, name in ipairs(excluded) do
+          if entry.name == name then
+            return false
+          end
+        end
+        return true
       end,
     },
     gh = {},
@@ -18,10 +24,17 @@ return {
               position = "right",
             },
           },
+          hidden = true,
+          exclude = { ".git", ".venv", ".DS_Store", ".ruff_cache" },
         },
         gh_pr = {},
         files = {
           hidden = true,
+          exclude = { ".git", ".venv", ".DS_Store", ".ruff_cache" },
+        },
+        grep = {
+          hidden = true,
+          exclude = { ".git", ".venv", ".DS_Store", ".ruff_cache" },
         },
       },
     },
@@ -63,14 +76,12 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require("snacks").setup(opts)
-
-    -- Set highlights after Snacks is loaded
-    vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#88C0D0" })
-    vim.api.nvim_set_hl(0, "Directory", { fg = "#88C0D0", bold = true })
-    vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88" })
-
-    vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { fg = "#D8DEE9", bold = false }) -- Set to Nord's light gray/white for high contrast
-  end,
+  -- config = function(_, opts)
+  --   require("snacks").setup(opts)
+  --   -- Set highlights after Snacks is loaded
+  --   vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#88C0D0" })
+  --   vim.api.nvim_set_hl(0, "Directory", { fg = "#88C0D0", bold = true })
+  --   vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88" })
+  --   vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { fg = "#D8DEE9", bold = false })
+  -- end,
 }
