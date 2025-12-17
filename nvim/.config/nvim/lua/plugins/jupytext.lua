@@ -3,23 +3,21 @@ return {
   opts = {
     custom_language_formatting = {
       python = {
-        extension = "qmd",
-        style = "quarto",
-        force_ft = "quarto",
+        extension = "py",
+        style = "percent", -- Use percent format for .py files
+        force_ft = "python",
       },
       r = {
-        extension = "qmd",
-        style = "quarto",
-        force_ft = "quarto",
+        extension = "r",
+        style = "percent",
+        force_ft = "r",
       },
     },
   },
   config = function(_, opts)
     require("jupytext").setup(opts)
-
     -- Set jupytext to use global environment
-    vim.g.jupytext_fmt_python_executable = vim.fn.expand("~/.config/nvim/nvim-venv/bin/python")
-
+    vim.g.jupytext_fmt_python_executable = vim.fn.expand("~/.config/nvim/nvim-venv/.venv/bin/python")
     -- Create new notebook command
     vim.api.nvim_create_user_command("NewNotebook", function(cmd_opts)
       local filename = cmd_opts.args
@@ -27,12 +25,10 @@ return {
         vim.notify("Usage: :NewNotebook <filename.ipynb>", vim.log.levels.ERROR)
         return
       end
-
       -- Ensure .ipynb extension
       if not filename:match("%.ipynb$") then
         filename = filename .. ".ipynb"
       end
-
       -- Create minimal notebook structure as properly formatted JSON
       local notebook_json = [[{
         "cells": [
@@ -58,13 +54,17 @@ return {
         "nbformat": 4,
         "nbformat_minor": 5
         }]]
-
       -- Write the file
       vim.fn.writefile(vim.split(notebook_json, "\n"), filename)
-
       -- Open the file (jupytext will convert it)
       vim.cmd("edit " .. filename)
       vim.notify("Created new notebook: " .. filename, vim.log.levels.INFO)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "ipynb",
+        callback = function()
+          vim.bo.filetype = "python"
+        end,
+      })
     end, { nargs = 1, complete = "file" })
   end,
 }
