@@ -1,8 +1,11 @@
-# Dynamic theme colors
-config-file = "~/.config/omarchy/current/theme/ghostty.conf"
+# theme
+theme = catppuccin-frappe
 
-font-size = 14
-font-family = "JetBrainsMonoNL Nerd Font"
+font-size = 18
+font-family = Iosevka Nerd Font Mono
+font-style-bold = Iosevka Nerd Font Mono
+font-style-italic = Iosevka Nerd Font Mono
+font-style-bold-italic = Iosevka Nerd Font Mono
 
 # cursor
 cursor-style-blink = true
