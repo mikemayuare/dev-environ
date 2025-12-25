@@ -1,18 +1,18 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    explorer = {
-      hidden = true,
-      filter = function(entry)
-        local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
-        for _, name in ipairs(excluded) do
-          if entry.name == name then
-            return false
-          end
-        end
-        return true
-      end,
-    },
+    -- explorer = {
+    --   hidden = true,
+    --   filter = function(entry)
+    --     local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
+    --     for _, name in ipairs(excluded) do
+    --       if entry.name == name then
+    --         return false
+    --       end
+    --     end
+    --     return true
+    --   end,
+    -- },
     gh = {},
     picker = {
       -- Enable hidden files globally for picker
