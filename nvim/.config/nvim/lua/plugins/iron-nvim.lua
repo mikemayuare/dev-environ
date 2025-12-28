@@ -17,14 +17,15 @@ return {
             command = { "fish" },
           },
           python = {
-            command = { "ipython" },
+            format = common.bracketed_paste_python,
+            command = { "ipython", "--no-autoindent" },
             format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
-            -- env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
+            env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
           },
           -- Add quarto support - it uses Python's ipython
           quarto = {
-            command = { "ipython" },
+            command = { "ipython", "--no-autoindent" },
             format = common.bracketed_paste_python,
           },
         },
@@ -39,7 +40,8 @@ return {
         -- Send selections to the DAP repl if an nvim-dap session is running.
         dap_integration = true,
         -- How the repl window will be displayed
-        repl_open_cmd = view.split.botright(0.4),
+        repl_open_cmd = view.split.vertical.rightbelow("%40"),
+        -- repl_open_cmd = view.split.botright(0.4),
       },
       -- Iron doesn't set keymaps by default anymore.
       -- You can set them here or manually add keymaps to the functions in iron.core

@@ -2,9 +2,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
-    config = function()
-      -- 👇 This line was moved inside the 'config' function
-      require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
-    end,
   },
+
+  require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" }),
 }
