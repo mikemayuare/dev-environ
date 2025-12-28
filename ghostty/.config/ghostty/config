@@ -49,7 +49,7 @@ background-opacity = 0.90
 
 theme = Nord
 font-size = 20
-font-family = "CaskaydiaCove Nerd Font"
+font-family = "ZedMono Nerd Font"
 font-feature = liga
 shell-integration-features = no-cursor
 cursor-style = block
@@ -61,3 +61,19 @@ link-previews = true
 
 # unbind new tab since it has no decoration
 keybind = super+t=unbind
+
+# Explicitly map the control keys to send the raw ASCII control character.
+# This prevents them from being misinterpreted by macOS/terminal defaults.
+
+# C-h (Left Navigation) -> ASCII 8 (Backspace/BS). 
+# This is the most critical key to fix.
+keybind = ctrl+h=text:\x08
+
+# C-j (Down Navigation) -> ASCII 10 (Line Feed/LF)
+keybind = ctrl+j=text:\x0A
+
+# C-k (Up Navigation) -> ASCII 11 (Vertical Tab/VT)
+keybind = ctrl+k=text:\x0B
+
+# C-l (Right Navigation) -> ASCII 12 (Form Feed/FF)
+keybind = ctrl+l=text:\x0C
