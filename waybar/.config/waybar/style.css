@@ -1,81 +1,114 @@
-@import "../omarchy/current/theme/waybar.css";
+/* Import the theme file - Change this line to switch themes! */
+@import "colors/catppuccin.css";
 
+/* -----------------------------------------------------------------------------
+ * Global Reset
+ * -------------------------------------------------------------------------- */
 * {
-  background-color: @background;
-  color: @foreground;
-  border-radius: 20;
-  min-height: 0;
-  font-family: 'JetBrainsMonoNL Nerd Font';
-  font-size: 16px;
+    font-family: "Ubuntu", "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
 }
 
-.modules-left {
-  margin-left: 8px;
+/* -----------------------------------------------------------------------------
+ * Waybar Window (The Bar Itself)
+ * -------------------------------------------------------------------------- */
+window#waybar {
+    background-color: @w-bg-main;
+    color: @w-txt-main;
+    border-radius: 12px;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-.modules-right {
-  margin-right: 8px;
+/* -----------------------------------------------------------------------------
+ * Workspaces (Left)
+ * -------------------------------------------------------------------------- */
+#workspaces {
+    margin: 4px 4px;
+    padding: 0 5px 0 20px;
+    border-radius: 10px;
 }
 
 #workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
+    padding: 0 5px;
+    color: @w-txt-muted;
+    background: transparent;
+    transition: all 0.1s ease;
 }
 
-#workspaces button.empty {
-  opacity: 0.5;
+#workspaces button.active {
+    color: @w-accent-main;
+    background: @w-bg-hover;
+    border-radius: 50px;
+    min-width: 40px;
 }
 
-#cpu,
-#battery,
+#workspaces button:hover {
+    color: @w-txt-main;
+    background: @w-bg-hover;
+    border-radius: 50px;
+}
+
+#workspaces button.urgent {
+    color: @w-accent-crit;
+}
+
+/* -----------------------------------------------------------------------------
+ * Clock (Center)
+ * -------------------------------------------------------------------------- */
+#clock {
+    color: @w-txt-main;
+    margin: 4px 0;
+    padding: 0 15px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Right Modules (Tray, Network, Audio, Notification)
+ * -------------------------------------------------------------------------- */
+
+/* Shared base style for right-side modules */
+#tray,
+#network,
+#privacy,
+#bluetooth,
 #pulseaudio,
-#custom-omarchy,
-#custom-screenrecording-indicator,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
+#custom-notification {
+    /* background-color: @w-bg-module; */
+    color: @w-txt-main;
+    margin: 4px 2px;
+    padding: 0 8px;
+}
+
+/* Specific colors for icons using semantic names */
+#privacy {
+    color: @w-accent-warn;
 }
 
 #tray {
-  margin-right: 16px;
+    /* padding-right: 12px; */
 }
 
 #bluetooth {
-  margin-right: 17px;
+    font-size: 18px;
 }
 
-#network {
-  margin-right: 13px;
+#custom-notification {
+    margin-right: 6px;
+    padding: 0 20px 0 8px;
 }
 
-#custom-expand-icon {
-  margin-right: 18px;
-}
-
+/* -----------------------------------------------------------------------------
+ * Tooltips (Calendar, Network Details, etc.)
+ * -------------------------------------------------------------------------- */
 tooltip {
-  padding: 2px;
+    background: @w-bg-main;
+    border: 1px solid @pink;
+    border-radius: 10px;
 }
 
-#custom-update {
-  font-size: 10px;
-}
-
-#clock {
-  margin-left: 8.75px;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-#custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
-}
-
-#custom-screenrecording-indicator.active {
-  color: #a55555;
+tooltip label {
+    color: @w-txt-main;
+    padding: 10px;
 }
