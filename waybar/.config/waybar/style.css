@@ -25,24 +25,25 @@ window#waybar {
  * Workspaces (Left)
  * -------------------------------------------------------------------------- */
 #workspaces {
-    margin: 2px 8px;
+    margin: 6px 8px;
     padding: 4px 14px;
     border-radius: 10px;
-    background-color: @w-bg-main;
+    background-color: @w-bg-module;
 }
 
 #workspaces button {
     padding: 0 5px;
-    color: @w-txt-muted;
+    color: @w-txt-main;
     background: transparent;
     transition: all 0.1s ease;
 }
 
 #workspaces button.active {
-    color: @w-accent-main;
-    background: @w-bg-hover;
+    color: @w-bg-hover;
+    background: @pink;
     border-radius: 50px;
-    min-width: 40px;
+    min-width: 60px;
+    border: 0;
 }
 
 #workspaces button:hover {
@@ -60,9 +61,9 @@ window#waybar {
  * -------------------------------------------------------------------------- */
 #clock {
     color: @w-txt-main;
-    margin: 2px 8px;
+    margin: 6px 8px;
     padding: 4px 14px;
-    background-color: @w-bg-main;
+    background-color: @w-bg-module;
     border-radius: 10px;
 }
 
@@ -72,23 +73,23 @@ window#waybar {
 
 /* Shared base style for right-side modules */
 #tray,
-#network,
 #privacy,
-#bluetooth,
-#pulseaudio,
 #group-tray-expander,
-#temperature,
-#custom-gpu-memory,
+#cpu-gpu,
+#devices,
 #custom-expand-icon,
 #custom-notification {
     /* background-color: @w-bg-module; */
     color: @w-txt-main;
-    margin: 2px 5px;
+    margin: 6px 5px;
     padding: 4px 14px;
     border-radius: 10px;
-    background-color: @w-bg-main;
+    background-color: @w-bg-module;
 }
 
+#custom-gpu-memory {
+    padding-left: 14px;
+}
 /* Specific colors for icons using semantic names */
 #privacy {
     color: @w-accent-warn;
@@ -96,13 +97,17 @@ window#waybar {
 
 #bluetooth {
     font-size: 18px;
+    padding-left: 14px;
 }
 
+#pulseaudio {
+    padding-left: 10px;
+}
 /* -----------------------------------------------------------------------------
  * Tooltips (Calendar, Network Details, etc.)
  * -------------------------------------------------------------------------- */
 tooltip {
-    background: @w-bg-main;
+    background: @w-bg-module;
     border: 1px solid @pink;
     border-radius: 10px;
 }

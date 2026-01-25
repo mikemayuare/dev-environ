@@ -1,10 +1,10 @@
 {
   "position": "top",
-  "margin-top": 10,
+  "margin-top": 2,
   "margin-left": 20,
   "margin-right": 20,
   "height": 30,
-  "width": 2450,
+  // "width": 2450,
   "layer": "bottom",
   "modules-left": [
     "hyprland/workspaces"
@@ -15,11 +15,8 @@
   "modules-right": [
     "privacy",
     "group/tray-expander",
-    "temperature",
-    "custom/gpu-memory",
-    "network",
-    "bluetooth",
-    "pulseaudio",
+    "group/cpu-gpu",
+    "group/devices",
     "custom/notification"
   ],
   "hyprland/workspaces": {
@@ -103,6 +100,21 @@
       "tray"
     ]
   },
+  "custom/expand-icon": {
+    "format": "|",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 20
+  },
+  "group/cpu-gpu": {
+    "orientation": "inherit",
+    "modules": [
+      "temperature",
+      "custom/gpu-memory"
+    ]
+  },
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -116,18 +128,10 @@
     "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
     "interval": 1
   },
-  "custom/expand-icon": {
-    "format": "|",
-    "tooltip": false
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 20
-  },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-muted": "",
     "format-icons": {
       "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
       "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
@@ -139,6 +143,7 @@
       "portable": "",
       "car": "",
       "default": [
+        "",
         "",
         ""
       ]
@@ -152,14 +157,25 @@
   "network": {
     "interface": "wlan0",
     "format": "{icon}",
-    "format-wifi": "📶",
-    "format-ethernet": "🔌",
-    "format-disconnected": "❌",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰲛",
+    "format-icons": {
+      "wifi": [
+        "󰤯",
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨"
+      ],
+      "ethernet": "󰈀",
+      "disconnected": "󰲛"
+    },
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) 📶",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "~/.config/waybar/toggle_impala.sh"
+    "on-click": "~/.config/waybar/toggle_netpala.sh"
   },
   "bluetooth": {
     "format": "",
@@ -169,6 +185,14 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "~/.config/waybar/toggle_bluetui.sh"
+  },
+  "group/devices": {
+    "orientation": "inherit",
+    "modules": [
+      "network",
+      "bluetooth",
+      "pulseaudio"
+    ]
   },
   "custom/notification": {
     "tooltip": true,
