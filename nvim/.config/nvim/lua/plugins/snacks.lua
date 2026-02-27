@@ -1,19 +1,36 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    -- explorer = {
-    --   hidden = true,
-    --   filter = function(entry)
-    --     local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
-    --     for _, name in ipairs(excluded) do
-    --       if entry.name == name then
-    --         return false
-    --       end
-    --     end
-    --     return true
-    --   end,
-    -- },
+    -- Snacks Dashboard
+    dashboard = {
+      preset = {
+        header = [[
+███████╗██╗         ██╗  ██╗███████╗██╗   ██╗██╗███╗   ███╗
+██╔════╝██║         ██║ ██╔╝██╔════╝██║   ██║██║████╗ ████║
+█████╗  ██║         █████╔╝ █████╗  ██║   ██║██║██╔████╔██║
+██╔══╝  ██║         ██╔═██╗ ██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║
+███████╗███████╗    ██║  ██╗███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚══════╝╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+
+      ]],
+      },
+    },
+    -- Snacks Explorer
+    explorer = {
+      hidden = false,
+      filter = function(entry)
+        local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
+        for _, name in ipairs(excluded) do
+          if entry.name == name then
+            return false
+          end
+        end
+        return true
+      end,
+    },
+    -- Snacks GitHub
     gh = {},
+    -- Snacks Picker
     picker = {
       -- Enable hidden files globally for picker
       hidden = true,
