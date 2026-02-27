@@ -3,20 +3,18 @@
   "margin-top": 2,
   "margin-left": 20,
   "margin-right": 20,
-  "height": 30,
+  "height": 26,
   // "width": 2450,
   "layer": "bottom",
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
   "modules-center": [
-    "clock"
+    "clock",
+    "hyprland/workspaces",
+    "privacy",
+    "group/devices"
   ],
   "modules-right": [
-    "privacy",
     "group/tray-expander",
     "group/cpu-gpu",
-    "group/devices",
     "custom/notification"
   ],
   "hyprland/workspaces": {
@@ -27,18 +25,23 @@
       "3": "3",
       "4": "4",
       "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
       "active": "",
       "default": ""
     },
     "persistent-workspaces": {
-      "*": 5,
-      "HDMI-A-1": 3
+      "*": 8
+      // "HDMI-A-1": 3
     }
   },
   "clock": {
     "interval": 1,
     "tooltip": true,
-    "format": "{:%H:%M:%S  %a %b %d}",
+    "format": "{:%H:%M:%S}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -101,7 +104,7 @@
     ]
   },
   "custom/expand-icon": {
-    "format": "|",
+    "format": "",
     "tooltip": false
   },
   "tray": {
