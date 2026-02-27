@@ -1,3 +1,12 @@
+-- Add different color to the line numbers
+-- vim.api.nvim_set_hl(0, "LineNr", { bg = "#3b4252" })
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#3b4252" })
+
+-- deactivates anything below if true
+if false then
+  return {}
+end
+
 -- transparent background
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -14,8 +23,12 @@ vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
-vim.api.nvim_set_hl(0, "LineNr", { bg = "#3b4252" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#3b4252" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "#303446", fg = "#c6d0f5" })
+vim.opt.signcolumn = "yes" -- Always show the signcolumn
+-- Set the SignColumn background to match your code area
+vim.api.nvim_set_hl(0, "SignColumn", { link = "Normal" })
+vim.opt.statuscolumn = " %=%3l  %s"
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#ca9ee6", fg = "#303446" })
 
 -- transparent background for neotree
 vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
