@@ -1,18 +1,17 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    -- Snacks Dashboard
     dashboard = {
       preset = {
         header = [[
-███████╗██╗         ██╗  ██╗███████╗██╗   ██╗██╗███╗   ███╗
-██╔════╝██║         ██║ ██╔╝██╔════╝██║   ██║██║████╗ ████║
-█████╗  ██║         █████╔╝ █████╗  ██║   ██║██║██╔████╔██║
-██╔══╝  ██║         ██╔═██╗ ██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║
-███████╗███████╗    ██║  ██╗███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚══════╝╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
 
-      ]],
+          ███╗   ███╗██╗██╗  ██╗███████╗██╗   ██╗██╗███╗   ███╗          Z
+          ████╗ ████║██║██║ ██╔╝██╔════╝██║   ██║██║████╗ ████║      Z    
+          ██╔████╔██║██║█████╔╝ █████╗  ██║   ██║██║██╔████╔██║   z       
+          ██║╚██╔╝██║██║██╔═██╗ ██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+          ██║ ╚═╝ ██║██║██║  ██╗███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║           
+          ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝           
+]],
       },
     },
     -- Snacks Explorer
@@ -32,6 +31,28 @@ return {
     gh = {},
     -- Snacks Picker
     picker = {
+      layout = "custom",
+      layouts = {
+        custom = {
+          preview = "main",
+          layout = {
+            box = "vertical",
+            backdrop = true,
+            width = 0,
+            height = 0.4,
+            position = "bottom",
+            border = "none",
+            title = " {title} {live} {flags}",
+            title_pos = "left",
+            {
+              box = "horizontal",
+              { win = "list", border = "rounded" },
+              { win = "preview", title = "{preview}", border = "rounded" },
+            },
+            { win = "input", height = 1, border = "bottom" },
+          },
+        },
+      },
       -- Enable hidden files globally for picker
       hidden = true,
       sources = {

@@ -5,49 +5,63 @@ return {
     local iron = require("iron.core")
     local view = require("iron.view")
     local common = require("iron.fts.common")
+
     iron.setup({
       config = {
-        -- Whether a repl should be discarded or not
         scratch_repl = true,
-        -- Your repl definitions come here
         repl_definition = {
           sh = {
-            -- Can be a table or a function that
-            -- returns a table (see below)
             command = { "fish" },
           },
+          -- Updated Python configuration below
           python = {
-            format = common.bracketed_paste_python,
-            command = { "ipython", "--no-autoindent" },
-            format = common.bracketed_paste_python,
+            command = function()
+              -- Note: You MUST have the 'linux-cultist/venv-selector.nvim' plugin installed for this to work
+              local venv_path = require("venv-selector").venv()
+              local venv_name = ""
+
+              if venv_path and venv_path ~= "" then
+                venv_name = vim.fn.fnamemodify(venv_path, ":t")
+              else
+                venv_name = "Global Python"
+              end
+
+              print("Virtual environment activated: " .. venv_name)
+
+              return {
+                "ipython",
+                "--no-autoindent",
+                "-c",
+                "import sys; print('========== iron.nvim REPL =========='); print('Venv:', '"
+                  .. venv_name
+                  .. "'); print('Python:', sys.version.split()[0]); print('====================================')",
+                "-i",
+              }
+            end,
+            format = function(lines, extras)
+              local result = common.bracketed_paste_python(lines, extras)
+              local filtered = vim.tbl_filter(function(line)
+                return not string.match(line, "^%s*#")
+              end, result)
+              return filtered
+            end,
             block_dividers = { "# %%", "#%%" },
-            env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
+            env = { PYTHON_BASIC_REPL = "1" },
           },
-          -- Add quarto support - it uses Python's ipython
           quarto = {
             command = { "ipython", "--no-autoindent" },
             format = common.bracketed_paste_python,
           },
         },
-        -- set the file type of the newly created repl to ft
-        -- bufnr is the buffer id of the REPL and ft is the filetype of the
-        -- language being used for the REPL.
         repl_filetype = function(bufnr, ft)
           return ft
-          -- or return a string name such as the following
-          -- return "iron"
         end,
-        -- Send selections to the DAP repl if an nvim-dap session is running.
         dap_integration = true,
-        -- How the repl window will be displayed
         repl_open_cmd = view.split.vertical.rightbelow("%40"),
-        -- repl_open_cmd = view.split.botright(0.4),
       },
-      -- Iron doesn't set keymaps by default anymore.
-      -- You can set them here or manually add keymaps to the functions in iron.core
       keymaps = {
-        toggle_repl = "<space>jr", -- toggles the repl open and closed.
-        restart_repl = "<space>jR", -- calls `IronRestart` to restart the repl
+        toggle_repl = "<space>jr",
+        restart_repl = "<space>jR",
         send_motion = "<space>js",
         visual_send = "<space>js",
         send_file = "<space>jf",
@@ -65,18 +79,15 @@ return {
         exit = "<space>jq",
         clear = "<space>kl",
       },
-      -- If the highlight is on, you can change how it looks
-      -- For the available options, check nvim_set_hl
       highlight = {
         italic = true,
       },
-      ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+      ignore_blank_lines = true,
       env = {
-        BROWSER = "firefox", -- or your preferred browser
+        BROWSER = "firefox",
       },
     })
-    -- iron also has a list of commands, see :h iron-commands for all available commands
-    -- Place custom keymaps here as well
+
     vim.keymap.set("n", "<space>jf", "<cmd>IronFocus<cr>", { desc = "Iron: Focus REPL" })
     vim.keymap.set("n", "<space>jh", "<cmd>IronHide<cr>", { desc = "Iron: Hide REPL" })
   end,
