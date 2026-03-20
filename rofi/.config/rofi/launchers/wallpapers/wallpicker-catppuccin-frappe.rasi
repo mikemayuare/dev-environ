@@ -1,0 +1,124 @@
+/*******************************************************************************
+ * Rofi Catppuccin Frappe Theme with Pink Accent
+ * Based on Catppuccin Frappe color palette
+ ******************************************************************************/
+
+* {
+    /* Catppuccin Frappe colors */
+    bg0:     #303446;
+    bg1:     #292c3c;
+    bg2:     #414559;
+    bg3:     #51576d;
+    fg0:     #c6d0f5;
+    fg1:     #b5bfe2;
+    fg2:     #a5adce;
+    
+    /* Pink accent */
+    accent:  #f4b8e4;
+    urgent:  #e78284;
+    
+    background-color: transparent;
+    text-color:       @fg0;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    location:     center;
+    width:        900px;
+    background-color: @bg0;
+    border:       2px;
+    border-color: @accent;
+    border-radius: 12px;
+    padding:      20px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing:      15px;
+}
+
+inputbar {
+    children:   [ prompt, entry ];
+    background-color: @bg1;
+    border-radius: 8px;
+    padding:    12px;
+    border:     1px;
+    border-color: @bg3;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    padding:    0 10px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg0;
+    placeholder:      "Search wallpapers...";
+    placeholder-color: @fg2;
+}
+
+listview {
+    columns:      3;
+    lines:        3;
+    spacing:      15px;
+    cycle:        false;
+    dynamic:      true;
+    layout:       vertical;
+    background-color: transparent;
+}
+
+element {
+    orientation:  vertical;
+    background-color: @bg1;
+    border-radius: 8px;
+    padding:      10px;
+    border:       2px;
+    border-color: transparent;
+}
+
+element normal.normal {
+    background-color: @bg1;
+    text-color:       @fg0;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    text-color:       @accent;
+    border-color:     @accent;
+}
+
+element alternate.normal {
+    background-color: @bg1;
+    text-color:       @fg0;
+}
+
+element-icon {
+    size:         180px;
+    background-color: transparent;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    border-radius: 6px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    margin:           8px 0 0 0;
+}
+
+message {
+    background-color: @bg1;
+    border-radius: 8px;
+    padding:      12px;
+    border:       1px;
+    border-color: @bg3;
+}
+
+textbox {
+    text-color: @fg0;
+    background-color: transparent;
+}
