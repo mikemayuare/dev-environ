@@ -3,8 +3,8 @@ if status is-interactive
 end
 
 # starship integration
-# starship init fish | source
-oh-my-posh init fish --config ~/.config/fish/themes/dracula-minimal.omp.json | source
+starship init fish | source
+# oh-my-posh init fish --config ~/.config/fish/themes/dracula-minimal.omp.json | source
 
 # zoxide integration
 zoxide init fish --cmd cd | source
@@ -19,6 +19,7 @@ end
 
 # aliases
 alias nvs='nvim $(fzf --preview="bat --color=always {}")'
+alias cat='batcat'
 
 # eza
 if command -v eza &>/dev/null
