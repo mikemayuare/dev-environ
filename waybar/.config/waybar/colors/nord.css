@@ -1,0 +1,48 @@
+/* -----------------------------------------------------------------------------
+ * Nord Palette
+ * -------------------------------------------------------------------------- */
+@define-color base   #2E3440;
+@define-color mantle #272C36;
+@define-color crust  #222730;
+@define-color text     #ECEFF4;
+@define-color subtext0 #9BA4B5;
+@define-color subtext1 #B0BAC9;
+@define-color surface0 #3B4252;
+@define-color surface1 #434C5E;
+@define-color surface2 #4C566A;
+@define-color overlay0 #596175;
+@define-color overlay1 #677081;
+@define-color overlay2 #75808E;
+@define-color blue      #81A1C1;  /* calm blue */
+@define-color lavender  #88C0D0;  /* lighter blue-cyan */
+@define-color sapphire  #5E81AC;  /* deeper blue */
+@define-color sky       #8FBCBB;  /* teal-ish, bright */
+@define-color teal      #7EADA9;  /* muted teal */
+@define-color green     #A3BE8C;  /* aurora green */
+@define-color yellow    #EBCB8B;  /* aurora yellow */
+@define-color peach     #D08770;  /* aurora orange */
+@define-color maroon    #BF616A;  /* aurora red, darker role */
+@define-color red       #BF616A;  /* aurora red */
+@define-color mauve     #B48EAD;  /* aurora purple — primary accent role */
+@define-color pink      #88C0D0;  /* no pink in Nord; reuse frost for highlight role */
+@define-color flamingo  #D08770;  /* warm/soft alert role → orange */
+@define-color rosewater #EBCB8B;  /* warm pastel role → yellow */
+/* -----------------------------------------------------------------------------
+ * Semantic/Generic Mappings
+ * -------------------------------------------------------------------------- */
+/* Backgrounds */
+@define-color w-bg-main    @base;
+@define-color w-bg-module  @surface0;
+@define-color w-bg-hover   @surface1;
+@define-color w-bg-tooltip @mantle;
+/* Text */
+@define-color w-txt-main   @text;
+@define-color w-txt-muted  @overlay1;
+@define-color w-txt-dark   @crust;
+/* Accents */
+@define-color w-accent-main    @mauve;
+@define-color w-accent-info    @blue;
+@define-color w-accent-good    @green;
+@define-color w-accent-warn    @peach;
+@define-color w-accent-crit    @red;
+@define-color w-border         @surface1;

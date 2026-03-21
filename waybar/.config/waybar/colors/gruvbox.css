@@ -1,0 +1,45 @@
+/* -----------------------------------------------------------------------------
+ * Gruvbox Dark Palette
+ * -------------------------------------------------------------------------- */
+@define-color base   #282828;
+@define-color mantle #1d2021;
+@define-color crust  #181818;
+@define-color text     #ebdbb2;
+@define-color subtext0 #a89984;
+@define-color subtext1 #bdae93;
+@define-color surface0 #3c3836;
+@define-color surface1 #504945;
+@define-color surface2 #665c54;
+@define-color overlay0 #7c6f64;
+@define-color overlay1 #928374;
+@define-color overlay2 #a89984;
+@define-color blue      #458588;  /* bright blue */
+@define-color lavender  #83a598;  /* neutral blue — lighter, softer */
+@define-color sapphire  #076678;  /* faded blue — deeper */
+@define-color sky       #8ec07c;  /* bright aqua — airy, open */
+@define-color teal      #689d6a;  /* neutral aqua */
+@define-color green     #98971a;  /* bright green */
+@define-color yellow    #d79921;  /* bright yellow */
+@define-color peach     #d65d0e;  /* bright orange — warm alert role */
+@define-color maroon    #cc241d;  /* bright red, darker feel */
+@define-color red       #fb4934;  /* bright red — vivid error role */
+@define-color mauve     #b16286;  /* bright purple — primary accent */
+@define-color pink      #d3869b;  /* neutral purple — softer highlight */
+@define-color flamingo  #fe8019;  /* bright orange — warm/glowing */
+@define-color rosewater #fabd2f;  /* bright yellow — warm pastel role */
+/* -----------------------------------------------------------------------------
+ * Semantic/Generic Mappings
+ * -------------------------------------------------------------------------- */
+@define-color w-bg-main    @base;
+@define-color w-bg-module  @surface0;
+@define-color w-bg-hover   @surface1;
+@define-color w-bg-tooltip @mantle;
+@define-color w-txt-main   @text;
+@define-color w-txt-muted  @overlay1;
+@define-color w-txt-dark   @crust;
+@define-color w-accent-main    @mauve;
+@define-color w-accent-info    @blue;
+@define-color w-accent-good    @green;
+@define-color w-accent-warn    @peach;
+@define-color w-accent-crit    @red;
+@define-color w-border         @surface1;

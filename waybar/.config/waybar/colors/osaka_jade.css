@@ -1,0 +1,45 @@
+/* -----------------------------------------------------------------------------
+ * Osaka Jade Palette
+ * -------------------------------------------------------------------------- */
+@define-color base   #0d1a14;
+@define-color mantle #080f0b;
+@define-color crust  #050a07;
+@define-color text     #c8d5c0;
+@define-color subtext0 #7a9a7a;
+@define-color subtext1 #92b092;
+@define-color surface0 #1a2e20;
+@define-color surface1 #243d2a;
+@define-color surface2 #2e4d35;
+@define-color overlay0 #3d6645;
+@define-color overlay1 #4d7d56;
+@define-color overlay2 #5e9468;
+@define-color blue      #5fa8a0;  /* teal-blue — info role */
+@define-color lavender  #8ecfc8;  /* lighter teal — softer info */
+@define-color sapphire  #3d8a82;  /* deeper teal */
+@define-color sky       #a0d4a0;  /* bright jade green — airy */
+@define-color teal      #5aad7a;  /* mid jade-teal */
+@define-color green     #6abf6a;  /* primary green */
+@define-color yellow    #c8b866;  /* muted gold */
+@define-color peach     #c28050;  /* warm amber-orange — warn role */
+@define-color maroon    #a05050;  /* muted red — softer danger */
+@define-color red       #c46060;  /* red — error role */
+@define-color mauve     #7a9abf;  /* desaturated blue-grey — accent role */
+@define-color pink      #a07a8e;  /* muted rose — no vivid pink; closest warm highlight */
+@define-color flamingo  #b08060;  /* warm earthy tone — glowing/warm role */
+@define-color rosewater #c8a878;  /* pale gold — warm pastel role */
+/* -----------------------------------------------------------------------------
+ * Semantic/Generic Mappings
+ * -------------------------------------------------------------------------- */
+@define-color w-bg-main    @base;
+@define-color w-bg-module  @surface0;
+@define-color w-bg-hover   @surface1;
+@define-color w-bg-tooltip @mantle;
+@define-color w-txt-main   @text;
+@define-color w-txt-muted  @overlay1;
+@define-color w-txt-dark   @crust;
+@define-color w-accent-main    @mauve;
+@define-color w-accent-info    @blue;
+@define-color w-accent-good    @green;
+@define-color w-accent-warn    @peach;
+@define-color w-accent-crit    @red;
+@define-color w-border         @surface1;

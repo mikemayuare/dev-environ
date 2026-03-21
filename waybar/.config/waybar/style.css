@@ -1,5 +1,5 @@
 /* Import the theme file - Change this line to switch themes! */
-@import "colors/catppuccin.css";
+@import "colors/nord.css";
 
 /* ----------------------------------------------------------------------------- Global Reset
  * -------------------------------------------------------------------------- */
@@ -14,10 +14,10 @@
  * Waybar Window (The Bar Itself)
  * -------------------------------------------------------------------------- */
 window#waybar {
-    background-color: transparent;
+    background-color: @w-bg-main;
     color: @w-txt-main;
-    border-radius: 12px;
     transition-property: background-color;
+    border-bottom: 1px solid @overlay0;
     transition-duration: .5s;
 }
 
@@ -47,11 +47,8 @@ window#waybar {
 
 #custom-expand-icon {
     color: @w-txt-main;
-    background-color: @w-bg-module;
     margin: 6px 5px;
     padding: 4px 6px;
-    border: 2px solid @surface2;
-    border-radius: 8px;
 }
 
 /* Shared base style for right-side modules */
@@ -66,11 +63,12 @@ window#waybar {
     /* background-color: @w-bg-module; */
     color: @w-txt-main;
     margin: 6px 5px;
-    padding: 4px 14px;
-    border-radius: 20px;
-    background-color: @w-bg-module;
-    border: 2px solid @surface2;
+    padding: 0px 4px;
     transition: color 0.3s ease;
+}
+
+#custom-notification {
+    padding-right: 14px;
 }
 
 #workspaces:hover,
@@ -85,7 +83,7 @@ window#waybar {
 }
 
 #custom-gpu-memory {
-    padding-left: 14px;
+    padding-left: 10px;
 }
 /* Specific colors for icons using semantic names */
 #privacy {
@@ -99,7 +97,7 @@ window#waybar {
 
 #bluetooth {
     font-size: 18px;
-    padding-left: 14px;
+    padding-left: 10px;
     transition: color 0.3s ease;
 }
 
