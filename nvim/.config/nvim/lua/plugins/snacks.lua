@@ -1,20 +1,46 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    -- explorer = {
-    --   hidden = true,
-    --   filter = function(entry)
-    --     local excluded = { ".DS_Store", ".venv", ".git", ".ruff_cache" }
-    --     for _, name in ipairs(excluded) do
-    --       if entry.name == name then
-    --         return false
-    --       end
-    --     end
-    --     return true
-    --   end,
-    -- },
+    --     dashboard = {
+    --       preset = {
+    --         header = [[
+    -- ███████╗██╗         ██╗  ██╗███████╗██╗   ██╗██╗███╗   ███╗
+    -- ██╔════╝██║         ██║ ██╔╝██╔════╝██║   ██║██║████╗ ████║
+    -- █████╗  ██║         █████╔╝ █████╗  ██║   ██║██║██╔████╔██║
+    -- ██╔══╝  ██║         ██╔═██╗ ██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║
+    -- ███████╗███████╗    ██║  ██╗███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║
+    -- ╚══════╝╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+    --
+    --         ]],
+    --       },
+    --     },
+    explorer = {
+      enabled = false,
+    },
     gh = {},
     picker = {
+      layout = "custom",
+      layouts = {
+        custom = {
+          preview = "main",
+          layout = {
+            box = "vertical",
+            backdrop = false,
+            width = 0,
+            height = 0.4,
+            position = "bottom",
+            border = "top",
+            title = " {title} {live} {flags}",
+            title_pos = "left",
+            {
+              box = "horizontal",
+              { win = "list", border = "rounded" },
+              { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+            },
+            { win = "input", height = 1, border = "bottom" },
+          },
+        },
+      },
       -- Enable hidden files globally for picker
       hidden = true,
       sources = {
@@ -76,12 +102,4 @@ return {
       },
     },
   },
-  -- config = function(_, opts)
-  --   require("snacks").setup(opts)
-  --   -- Set highlights after Snacks is loaded
-  --   vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#88C0D0" })
-  --   vim.api.nvim_set_hl(0, "Directory", { fg = "#88C0D0", bold = true })
-  --   vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88" })
-  --   vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { fg = "#D8DEE9", bold = false })
-  -- end,
 }

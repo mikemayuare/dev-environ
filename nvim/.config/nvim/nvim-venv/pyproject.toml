@@ -1,9 +1,0 @@
-[project]
-name = "nvim-python"
-version = "0.1.0"
-requires-python = ">=3.13"
-dependencies = [
-    "ipython>=9.7.0",
-    "jupyterlab>=4.4.10",
-    "jupytext>=1.18.1",
-]
