@@ -76,6 +76,9 @@ return {
         },
       },
     },
+    select = {
+      enable = true,
+    },
     styles = {
       picker = {
         wo = {

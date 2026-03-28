@@ -12,16 +12,15 @@ zoxide init fish --cmd cd | source
 fzf --fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/home/migue/google-cloud-sdk/path.fish.inc' ]
-#     . '/home/migue/google-cloud-sdk/path.fish.inc'
-# end
+if [ -f '/home/migue/google-cloud-sdk/path.fish.inc' ]
+    . '/home/migue/google-cloud-sdk/path.fish.inc'
+end
 
 # aliases
 alias nvs='nvim $(fzf --preview="bat --color=always {}")'
 alias nv='nvim'
 alias cat='bat'
 alias y='yazi'
-alias k='kubectl'
 
 # eza
 if command -v eza &>/dev/null
@@ -42,10 +41,3 @@ fish_add_path /home/migue/.opencode/bin
 # uv
 fish_add_path "/home/migue/.local/share/../bin"
 fish_add_path "/home/migue/.npm-global/bin"
-
-# kubectl variables
-set -x KUBECONFIG /home/migue/.kube/config
-
-# nvim as default editor
-set -x EDITOR nvim
-set -x VISUAL nvim

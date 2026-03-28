@@ -1,33 +1,40 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
+  lazy = false,
   version = "*", -- recommended, use latest release instead of latest commit
-  lazy = true,
-  ft = "markdown",
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-  -- event = {
-  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-  --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-  --   -- refer to `:h file-pattern` for more examples
-  --   "BufReadPre path/to/my-vault/*.md",
-  --   "BufNewFile path/to/my-vault/*.md",
-  -- },
-  dependencies = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
-
-    -- see below for full list of optional dependencies 👇
-  },
+  ---@module  'obsidian'
+  ---@type obsidian.config
   opts = {
+    legacy_commands = false,
+    -- This replaces the "random numbers" with the title you type
+    note_id_func = function(title)
+      if title ~= nil then
+        -- Transform title into a valid file name (lowercase, no spaces)
+        return title:gsub(" ", "-"):gsub("[^%w%-]", ""):lower()
+      else
+        -- Fallback to a timestamp if no title is provided
+        return tostring(os.time())
+      end
+    end,
     workspaces = {
       {
-        name = "personal",
-        path = "~/data-science/obsidian/",
+        name = "data_science",
+        path = "~/data-science/obsidian/data_science/",
+      },
+    },
+    templates = {
+      folder = "templates", -- The folder name inside your vault
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
+      -- Optional: define variables you use in your templates
+      substitutions = {
+        yesterday = function()
+          return os.date("%Y-%m-%d", os.time() - 86400)
+        end,
       },
     },
     ui = {
       enable = false,
     },
-
-    -- see below for full list of options 👇
   },
 }

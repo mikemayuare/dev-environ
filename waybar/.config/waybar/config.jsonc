@@ -3,6 +3,9 @@
   "height": 26,
   // "width": 2450,
   "layer": "bottom",
+  "modules-left": [
+    "hyprland/window"
+  ],
   "modules-center": [
     "hyprland/workspaces"
   ],
@@ -14,6 +17,12 @@
     "clock",
     "custom/notification"
   ],
+  "hyprland/window": {
+    "format": "{class}",
+    "icon": true,
+    "tooltip": true,
+    "tooltip-format": "{title}"
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {

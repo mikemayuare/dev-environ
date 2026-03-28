@@ -19,6 +19,12 @@ window#waybar {
     transition-property: background-color;
     border-bottom: 1px solid @overlay0;
     transition-duration: .5s;
+    padding: 0 5px;
+}
+
+#window {
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 #workspaces button {
