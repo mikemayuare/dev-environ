@@ -1,28 +1,25 @@
 # theme
-theme = catppuccin-frappe
+theme = Nord
 
 font-size = 18
 font-family = Iosevka Nerd Font Mono
-font-style-bold = Iosevka Nerd Font Mono
-font-style-italic = Iosevka Nerd Font Mono
-font-style-bold-italic = Iosevka Nerd Font Mono
-
 # cursor
 cursor-style-blink = true
 shell-integration-features = no-cursor
 cursor-style = block
 
 # background
-background-opacity = 0.80
+background-opacity = 0.85
 
 # Window
-window-padding-x = 14
-window-padding-y = 14
+window-padding-x = 16
+window-padding-y = 16
 confirm-close-surface=false
 resize-overlay = never
 
-# Keyboard bindings
-keybind = f11=toggle_fullscreen
+
+shell-integration-features = ssh-terminfo,ssh-env
+clipboard-write = allow
 
 # window decoration
 window-decoration = none
