@@ -22,11 +22,6 @@ window#waybar {
     padding: 0 5px;
 }
 
-#window {
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
 #workspaces button {
     padding: 0 5px;
     color: @w-txt-main;
@@ -37,14 +32,15 @@ window#waybar {
 #workspaces button.active {
     color: @w-bg-hover;
     background: @pink;
-    border-radius: 50px;
-    min-width: 60px;
+    border-radius: 4px;
+    min-width: 40px;
+    margin: 4px 0;
 }
 
 #workspaces button:hover {
     color: @blue;
     background: @w-bg-hover;
-    border-radius: 50px;
+    border-radius: 4px;
 }
 
 #workspaces button.urgent {
@@ -71,6 +67,10 @@ window#waybar {
     margin: 6px 5px;
     padding: 0px 4px;
     transition: color 0.3s ease;
+}
+
+#workspaces {
+  padding-left: 14px;
 }
 
 #custom-notification {
