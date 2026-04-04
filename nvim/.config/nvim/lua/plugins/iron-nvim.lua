@@ -49,9 +49,38 @@ return {
             env = { PYTHON_BASIC_REPL = "1" },
           },
           quarto = {
-            command = { "ipython", "--no-autoindent" },
-            format = common.bracketed_paste_python,
+            command = function()
+              local venv_path = require("venv-selector").venv()
+              local venv_name = ""
+              if venv_path and venv_path ~= "" then
+                venv_name = vim.fn.fnamemodify(venv_path, ":t")
+              else
+                venv_name = "Global Python"
+              end
+              print("Virtual environment activated: " .. venv_name)
+              return {
+                "ipython",
+                "--no-autoindent",
+                "-c",
+                "import sys; print('========== iron.nvim REPL =========='); print('Venv:', '"
+                  .. venv_name
+                  .. "'); print('Python:', sys.version.split()[0]); print('====================================')",
+                "-i",
+              }
+            end,
+            format = function(lines, extras)
+              local result = common.bracketed_paste_python(lines, extras)
+              return vim.tbl_filter(function(line)
+                return not string.match(line, "^%s*#")
+              end, result)
+            end,
+            block_dividers = { "# %%", "#%%" },
+            env = { PYTHON_BASIC_REPL = "1" },
           },
+          -- quarto = {
+          --   command = { "ipython", "--no-autoindent" },
+          --   format = common.bracketed_paste_python,
+          -- },
         },
         repl_filetype = function(bufnr, ft)
           return ft

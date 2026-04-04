@@ -56,7 +56,7 @@ return {
         position = "overlay",
       },
     },
-    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+    ft = { "markdown", "norg", "rmd", "org", "codecompanion", "quarto", "qmd" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
       Snacks.toggle({
