@@ -49,3 +49,14 @@ set -x KUBECONFIG /home/migue/.kube/config
 # nvim as default editor
 set -x EDITOR nvim
 set -x VISUAL nvim
+
+# for keyring
+if not set -q XDG_RUNTIME_DIR
+    set -gx XDG_RUNTIME_DIR /run/user/(id -u)
+end
+
+if not test -d $XDG_RUNTIME_DIR
+    sudo mkdir -p $XDG_RUNTIME_DIR
+    sudo chown (id -u):(id -g) $XDG_RUNTIME_DIR
+    chmod 700 $XDG_RUNTIME_DIR
+end
