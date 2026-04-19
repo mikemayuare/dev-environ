@@ -8,7 +8,7 @@ WALLPAPER_DIR="$HOME/Images"
 HYPRPAPER_CONFIG="$HOME/.config/hypr/hyprpaper.conf"
 HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
 CACHE_DIR="$HOME/.cache/wallpaper-picker"
-THEME_FILE="$HOME/.config/rofi/launchers/wallpapers/wallpicker-nord.rasi"
+THEME_FILE=$(cat "$HOME/.config/rofi/theme")
 THUMBNAIL_SIZE="314x144"
 
 # Create cache directory if it doesn't exist
@@ -36,7 +36,8 @@ temp_file=$(mktemp)
 for wp in "${wallpapers[@]}"; do
   name=$(basename "$wp")
   # Generate thumbnail path
-  thumb="$CACHE_DIR/$(echo "$name" | md5sum | cut -d' ' -f1).png"
+  thumb="$CACHE_DIR/$(echo "$name" | md5sum | cut -d' ' -f1).jpg"
+  # thumb="$CACHE_DIR/$(echo "$name" | md5sum | cut -d' ' -f1).jpg"
 
   # Create thumbnail if it doesn't exist or is older than original
   if [[ ! -f "$thumb" ]] || [[ "$wp" -nt "$thumb" ]]; then
@@ -55,6 +56,8 @@ done
 selected=$(cat "$temp_file" | rofi -dmenu -i \
   -p "Select Wallpaper" \
   -theme "$THEME_FILE" \
+  -theme-str "element { padding: 6px 10px; } element-icon { size: 96px; }" \
+  -theme-str "listview { lines: 5; }" \
   -show-icons \
   -format "s")
 

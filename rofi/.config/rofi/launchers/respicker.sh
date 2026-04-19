@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Rofi Monitor Resolution Picker for Hyprland with HDR and Bit Depth support
 # Dependencies: rofi, jq, hyprland
 
 # Configuration
 MONITORS_CONFIG="$HOME/.config/hypr/monitors.conf"
-THEME_FILE="$HOME/.config/rofi/launchers/wallpapers/respicker-nord.rasi"
+THEME_FILE=$(cat "$HOME/.config/rofi/theme")
 
 # Fallback resolutions for main monitor if detection fails
 FALLBACK_RESOLUTIONS=(
