@@ -1,4 +1,4 @@
 #!/bin/bash
 
-killall -9 waybar
-killall -9 swaync
+killall swaync 2>/dev/null
+pkill -SIGUSR2 waybar 2>/dev/null

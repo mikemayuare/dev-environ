@@ -6,5 +6,5 @@ if hyprctl clients | grep -q "bluetui"; then
   hyprctl dispatch closewindow "title:bluetui"
 else
   # Open it
-  uwsm app -- ghostty --title=bluetui -e sh -c bluetui
+  ghostty --title=bluetui -e sh -c bluetui
 fi

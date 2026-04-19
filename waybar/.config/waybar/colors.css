@@ -1,0 +1,10 @@
+/* Everforest Dark Hard — Waybar colors */
+@define-color w-bg-main     #272e33;
+@define-color w-bg-module   #374145;
+@define-color w-bg-hover    #414b50;
+@define-color w-txt-main    #d3c6aa;
+@define-color w-accent      #83c092;   /* green — hover / interactive */
+@define-color w-highlight   #7fbbb3;   /* teal — active workspace, tooltip border */
+@define-color w-border      #495156;
+@define-color w-accent-crit #e67e80;
+@define-color w-accent-warn #dbbc7f;

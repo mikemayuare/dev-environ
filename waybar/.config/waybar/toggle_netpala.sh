@@ -6,5 +6,5 @@ if hyprctl clients | grep -q "title: netpala"; then
   hyprctl dispatch closewindow "title:netpala"
 else
   # Open it
-  uwsm app -- ghostty --title=netpala -e sh -c netpala
+  ghostty --title=netpala -e sh -c netpala
 fi

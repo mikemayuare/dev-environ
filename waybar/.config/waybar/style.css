@@ -1,12 +1,11 @@
 /* Import the theme file - Change this line to switch themes! */
-@import "colors/nord.css";
+@import "colors.css";
 
 /* ----------------------------------------------------------------------------- Global Reset
  * -------------------------------------------------------------------------- */
 * {
     font-family: "Ubuntu Nerd Font Propo", "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: bold;
     min-height: 0;
 }
 
@@ -17,7 +16,7 @@ window#waybar {
     background-color: @w-bg-main;
     color: @w-txt-main;
     transition-property: background-color;
-    border-bottom: 1px solid @overlay0;
+    border-bottom: 1px solid @w-border;
     transition-duration: .5s;
     padding: 0 5px;
 }
@@ -31,16 +30,17 @@ window#waybar {
 
 #workspaces button.active {
     color: @w-bg-hover;
-    background: @pink;
-    border-radius: 4px;
-    min-width: 40px;
+    background: @w-highlight;
+    border-radius: 0px;
+    min-width: 30px;
+    padding-right: 10px;
     margin: 4px 0;
 }
 
 #workspaces button:hover {
-    color: @blue;
+    color: @w-accent;
     background: @w-bg-hover;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 #workspaces button.urgent {
@@ -53,6 +53,12 @@ window#waybar {
     padding: 4px 6px;
 }
 
+#custom-launcher {
+    font-size: 18px;
+    color: @w-txt-main;
+    padding-left: 18px;
+    transition: color 0.3s ease;
+}
 /* Shared base style for right-side modules */
 #workspaces,
 #clock,
@@ -66,7 +72,7 @@ window#waybar {
     color: @w-txt-main;
     margin: 6px 5px;
     padding: 0px 4px;
-    transition: color 0.3s ease;
+    transition: color 0.15s ease;
 }
 
 #workspaces {
@@ -77,6 +83,11 @@ window#waybar {
     padding-right: 14px;
 }
 
+#clock {
+    font-weight: bold;
+}
+
+#custom-launcher:hover,
 #workspaces:hover,
 #clock:hover,
 #tray:hover,
@@ -85,7 +96,7 @@ window#waybar {
 #cpu-gpu:hover,
 #custom-expand-icon:hover,
 #custom-notification:hover {
-    color: @blue;
+    color: @w-accent;
 }
 
 #custom-gpu-memory {
@@ -103,37 +114,39 @@ window#waybar {
 
 #bluetooth {
     font-size: 18px;
-    padding-left: 10px;
+    padding-left: 12px;
     transition: color 0.3s ease;
 }
 
 #bluetooth:hover {
-    color: @blue;
+    color: @w-accent;
 }
 
 #pulseaudio {
-    padding-left: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
     transition: color 0.3s ease;
 }
 
 #pulseaudio:hover {
-    color: @blue;
+    color: @w-accent;
 }
 
 #network {
     transition: color 0.3s ease;
+    padding-right: 6px;
 }
 
 #network:hover {
-    color: @blue;
+    color: @w-accent;
 }
 /* -----------------------------------------------------------------------------
  * Tooltips (Calendar, Network Details, etc.)
  * -------------------------------------------------------------------------- */
 tooltip {
     background: @w-bg-module;
-    border: 1px solid @pink;
-    border-radius: 10px;
+    border: 1px solid @w-highlight;
+    border-radius: 0px;
 }
 
 tooltip label {
