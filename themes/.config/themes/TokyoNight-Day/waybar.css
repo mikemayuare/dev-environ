@@ -1,0 +1,10 @@
+/* Tokyo Night Day — Waybar colors */
+@define-color w-bg-main     #e1e2e7;
+@define-color w-bg-module   #d5d6db;
+@define-color w-bg-hover    #cbccd1;
+@define-color w-txt-main    #3760bf;
+@define-color w-accent      #2e7de9;   /* blue — hover / interactive */
+@define-color w-highlight   #9854f1;   /* purple — active workspace, tooltip border */
+@define-color w-border      #c0c1c7;
+@define-color w-accent-crit #f52a65;
+@define-color w-accent-warn #8c6c3e;

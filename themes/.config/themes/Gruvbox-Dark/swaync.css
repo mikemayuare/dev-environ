@@ -1,0 +1,18 @@
+/* Gruvbox Hard Dark */
+:root {
+  --border-radius: 0px;
+  --base:     #1d2021;
+  --mantle:   #282828;
+  --crust:    #141617;
+  --surface0: #3c3836;
+  --surface1: #504945;
+  --surface2: #665c54;
+  --text:     #ebdbb2;
+  --accent:   #ebdbb2;
+  /* --accent:   #fabd2f; */
+  --widget-background: var(--surface1);
+  --cc-bg:    var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:   2px solid var(--accent);
+  --padding:  15px;
+}

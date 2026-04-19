@@ -1,0 +1,10 @@
+/* Gruvbox Light Hard — Waybar colors */
+@define-color w-bg-main     #f9f5d7;
+@define-color w-bg-module   #d5c4a1;
+@define-color w-bg-hover    #bdae93;
+@define-color w-txt-main    #3c3836;
+@define-color w-accent      #b57614;   /* yellow/orange — hover / interactive */
+@define-color w-highlight   #8f3f71;   /* purple — active workspace, tooltip border */
+@define-color w-border      #a89984;
+@define-color w-accent-crit #9d0006;
+@define-color w-accent-warn #b57614;

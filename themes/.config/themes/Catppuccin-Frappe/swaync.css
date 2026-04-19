@@ -1,0 +1,17 @@
+/* Catppuccin Frappé */
+:root {
+  --border-radius: 0px;
+  --base:     #303446;
+  --mantle:   #292c3c;
+  --crust:    #232634;
+  --surface0: #414559;
+  --surface1: #51576d;
+  --surface2: #626880;
+  --text:     #c6d0f5;
+  --accent:   #f4b8e4;   /* blue */
+  --widget-background: var(--surface1);
+  --cc-bg:    var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:   2px solid var(--accent);
+  --padding:  15px;;
+}

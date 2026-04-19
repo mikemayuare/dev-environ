@@ -1,0 +1,10 @@
+/* Catppuccin Latte — Waybar colors */
+@define-color w-bg-main     #eff1f5;
+@define-color w-bg-module   #ccd0da;
+@define-color w-bg-hover    #bcc0cc;
+@define-color w-txt-main    #4c4f69;
+@define-color w-accent      #1e66f5;   /* blue — hover / interactive */
+@define-color w-highlight   #ea76cb;   /* pink — active workspace, tooltip border */
+@define-color w-border      #acb0be;
+@define-color w-accent-crit #d20f39;
+@define-color w-accent-warn #df8e1d;

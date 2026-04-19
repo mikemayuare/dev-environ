@@ -1,0 +1,10 @@
+/* Nord — Waybar colors */
+@define-color w-bg-main     #2e3440;
+@define-color w-bg-module   #3b4252;
+@define-color w-bg-hover    #434c5e;
+@define-color w-txt-main    #d8dee9;
+@define-color w-accent      #88c0d0;   /* cyan — hover / interactive */
+@define-color w-highlight   #5e81ac;   /* deep blue — active workspace, tooltip border */
+@define-color w-border      #4c566a;
+@define-color w-accent-crit #bf616a;
+@define-color w-accent-warn #ebcb8b;

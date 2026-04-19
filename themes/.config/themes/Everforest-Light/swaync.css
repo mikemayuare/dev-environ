@@ -1,0 +1,17 @@
+/* Everforest Light Hard */
+:root {
+  --border-radius: 0px;
+  --base:     #fff9ef;
+  --mantle:   #f4f0e3;
+  --crust:    #edeada;
+  --surface0: #e5dfc5;
+  --surface1: #ddd8be;
+  --surface2: #cfc9b4;
+  --text:     #5c6a72;
+  --accent:   #8da101;
+  --widget-background: var(--surface1);
+  --cc-bg:    var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:   2px solid var(--accent);
+  --padding:  15px;
+}

@@ -1,0 +1,17 @@
+/* Tokyo Night */
+:root {
+  --border-radius: 0px;
+  --base:     #1a1b26;
+  --mantle:   #16161e;
+  --crust:    #13131a;
+  --surface0: #1f2335;
+  --surface1: #24283b;
+  --surface2: #292e42;
+  --text:     #c0caf5;
+  --accent:   #7aa2f7;
+  --widget-background: var(--surface1);
+  --cc-bg:    var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:   2px solid var(--accent);
+  --padding:  15px;
+}

@@ -1,0 +1,10 @@
+/* Catppuccin Frappé — Waybar colors */
+@define-color w-bg-main     #303446;
+@define-color w-bg-module   #414559;
+@define-color w-bg-hover    #51576d;
+@define-color w-txt-main    #c6d0f5;
+@define-color w-accent      #8caaee;   /* blue — hover / interactive */
+@define-color w-highlight   #f4b8e4;   /* pink — active workspace, tooltip border */
+@define-color w-border      #737994;
+@define-color w-accent-crit #e78284;
+@define-color w-accent-warn #e5c890;

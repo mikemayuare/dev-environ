@@ -1,0 +1,17 @@
+/* Nord */
+:root {
+  --border-radius: 0px;
+  --base:     #2e3440;
+  --mantle:   #272c36;
+  --crust:    #1e2128;
+  --surface0: #3b4252;
+  --surface1: #434c5e;
+  --surface2: #4c566a;
+  --text:     #d8dee9;
+  --accent:   #88c0d0;
+  --widget-background: var(--surface1);
+  --cc-bg:    var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:   2px solid var(--accent);
+  --padding:  15px;
+}
