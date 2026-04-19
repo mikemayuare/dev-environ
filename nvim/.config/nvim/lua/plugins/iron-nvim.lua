@@ -32,7 +32,7 @@ return {
                 "ipython",
                 "--no-autoindent",
                 "-c",
-                "import sys; print('========== iron.nvim REPL =========='); print('Venv:', '"
+                "import sys; print('========== iron.nvim REPL (quarto) =========='); print('Venv:', '"
                   .. venv_name
                   .. "'); print('Python:', sys.version.split()[0]); print('====================================')",
                 "-i",
@@ -43,10 +43,21 @@ return {
               local filtered = vim.tbl_filter(function(line)
                 return not string.match(line, "^%s*#")
               end, result)
+
+              -- Debug: print what's being sent
+              vim.notify("Lines being sent:\n" .. vim.inspect(filtered), vim.log.levels.INFO)
+
               return filtered
             end,
+            -- format = function(lines, extras)
+            --   local result = common.bracketed_paste_python(lines, extras)
+            --   local filtered = vim.tbl_filter(function(line)
+            --     return not string.match(line, "^%s*#")
+            --   end, result)
+            --   return filtered
+            -- end,
             block_dividers = { "# %%", "#%%" },
-            env = { PYTHON_BASIC_REPL = "1" },
+            -- env = { PYTHON_BASIC_REPL = "1" },
           },
           quarto = {
             command = function()
@@ -57,7 +68,7 @@ return {
               else
                 venv_name = "Global Python"
               end
-              print("Virtual environment activated: " .. venv_name)
+              print("Virtual environment activated for quarto: " .. venv_name)
               return {
                 "ipython",
                 "--no-autoindent",
@@ -69,13 +80,23 @@ return {
               }
             end,
             format = function(lines, extras)
-              local result = common.bracketed_paste_python(lines, extras)
-              return vim.tbl_filter(function(line)
-                return not string.match(line, "^%s*#")
-              end, result)
+              local result = {}
+              table.insert(result, "%cpaste -q")
+              for _, line in ipairs(lines) do
+                if not string.match(line, "^%s*#") then
+                  table.insert(result, line)
+                end
+              end
+              table.insert(result, "--") -- IPython's cpaste terminator
+              return result
             end,
+            -- format = function(lines, extras)
+            --   local result = common.bracketed_paste_python(lines, extras)
+            --   return vim.tbl_filter(function(line)
+            --     return not string.match(line, "^%s*#")
+            --   end, result)
+            -- end,
             block_dividers = { "# %%", "#%%" },
-            env = { PYTHON_BASIC_REPL = "1" },
           },
           -- quarto = {
           --   command = { "ipython", "--no-autoindent" },

@@ -2,3 +2,4 @@
 require("config.lazy")
 -- require("oil").setup({ default_file_explorer = true, view_options = { show_hidden = true } })
 vim.opt.formatoptions:remove({ "c", "r", "o" })
+require("vim._core.ui2").enable({})
