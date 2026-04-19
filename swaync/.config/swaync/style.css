@@ -1,36 +1,20 @@
-:root {
-  --border-radius: 22px;
-  --cc-bg: transparent;
-  /* Nord colors */
-  --base: #2e3440;
-  --mantle: #272c36;
-  --crust: #1e2128;
-  --surface0: #3b4252;
-  --surface1: #434c5e;
-  --surface2: #4c566a;
-  --text: #d8dee9;
-  --accent: #88c0d0;
-  /* --accent: #b48ead; */
-  /* Widget styling */
-  --widget-background: var(--surface1);
-  --noti-bg-alpha: 0.6;
-  --border: 2px solid var(--accent);
-  --padding: calc(var(--border-radius) / 1.5);
-}
+@import "colors.css";
+
 .control-center {
   border-radius: 0;
+  font-family: "Ubuntu Nerd Font Propo";
 }
 .widgets > .widget,
 .widget-mpris > carouselindicatordots,
 .widget-mpris > box > button {
   background: var(--widget-background);
   border-radius: var(--border-radius);
-  padding: calc(var(--border-radius) / 2);
+  padding: var(--padding);
   border: var(--border);
   color: var(--text);
 }
 .control-center-list-placeholder {
-  padding: var(--border-radius);
+  padding: var(--padding);
 }
 .notification-group {
   background: var(--widget-background);
@@ -39,7 +23,7 @@
   color: var(--text);
 }
 .widget.widget-mpris {
-  background: transparent;
+  background: var(--widget-background);
   border-radius: 0;
   padding: 0;
   border: none;
@@ -53,10 +37,10 @@
   margin-top: var(--padding);
 }
 .widget-mpris > box > button:hover {
-  background: rgba(67, 76, 94, 1);
+  background: var(--widget-background);
 }
 .widget-mpris-player {
-  background: rgba(39, 44, 54, 0.85);
+  background: var(--widget-background);
   box-shadow: none;
   border: var(--border);
   margin: 0 var(--padding);
