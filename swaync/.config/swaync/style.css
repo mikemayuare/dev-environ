@@ -1,9 +1,14 @@
 @import "colors.css";
 
-.control-center {
-  border-radius: 0;
-  font-family: "Ubuntu Nerd Font Propo";
+:root {
+  --border-radius: 4px;
 }
+
+.control-center {
+  font-family: "Ubuntu Nerd Font Propo";
+  background: transparent;
+}
+
 .widgets > .widget,
 .widget-mpris > carouselindicatordots,
 .widget-mpris > box > button {
@@ -12,6 +17,7 @@
   padding: var(--padding);
   border: var(--border);
   color: var(--text);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
 }
 .control-center-list-placeholder {
   padding: var(--padding);
@@ -21,10 +27,11 @@
   border-radius: var(--border-radius);
   padding: 8px;
   color: var(--text);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
 }
 .widget.widget-mpris {
   background: var(--widget-background);
-  border-radius: 0;
+  border-radius: var(--border-radius);
   padding: 0;
   border: none;
 }
