@@ -3,9 +3,13 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
       code = {
+        disable_background = true,
+        enabled = true,
         sign = true,
         width = "block",
-        right_pad = 1,
+        right_pad = 3,
+        left_margin = 0,
+        border = "thin",
       },
       heading = {
         enabled = true,
