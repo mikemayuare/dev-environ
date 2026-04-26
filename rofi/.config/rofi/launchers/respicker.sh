@@ -106,6 +106,9 @@ if [[ ${#monitors[@]} -gt 1 ]]; then
   selected_monitor=$(echo "$monitor_list" | rofi -dmenu -i \
     -p "Select Monitor" \
     -theme "$THEME_FILE" \
+    -hover-select \
+    -me-select-entry '' \
+    -me-accept-entry 'MousePrimary' \
     -format "s")
 
   [[ -z "$selected_monitor" ]] && exit 0

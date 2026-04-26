@@ -58,6 +58,9 @@ selected=$(cat "$temp_file" | rofi -dmenu -i \
   -theme "$THEME_FILE" \
   -theme-str "element { padding: 6px 10px; } element-icon { size: 96px; }" \
   -theme-str "listview { lines: 5; }" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -show-icons \
   -format "s")
 

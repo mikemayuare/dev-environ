@@ -63,6 +63,9 @@ CHOICE=$(echo "$MENU" | rofi \
   -mesg "Active: ${CURRENT:-none}" \
   -theme "$ROFI_THEME" \
   -theme-str "listview { lines: $LINES; }" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -no-custom \
   -format s)
 

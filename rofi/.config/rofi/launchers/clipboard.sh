@@ -12,6 +12,9 @@ CHOICE=$(cliphist list | rofi \
   -p "  Clipboard" \
   -theme "$THEME" \
   -theme-str "listview { lines: 8; }" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -no-custom \
   -format s)
 

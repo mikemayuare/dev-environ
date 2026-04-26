@@ -44,9 +44,12 @@ LINES=$(echo "$MENU" | wc -l)
 CHOICE=$(echo "$MENU" | rofi \
   -dmenu \
   -i \
-  -p "  Launchers" \
+  -p "  Settings" \
   -theme "$THEME" \
   -theme-str "listview { lines: $LINES; }" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -no-custom \
   -format s)
 

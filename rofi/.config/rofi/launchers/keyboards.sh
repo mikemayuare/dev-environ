@@ -35,6 +35,9 @@ done
 chosen=$(printf "%b" "$menu_entries" | rofi -dmenu \
   -p " Layout" \
   -theme "$THEME" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -theme-str "listview { lines: $LINES; }" \
   -i)
 

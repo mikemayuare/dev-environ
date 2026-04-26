@@ -42,6 +42,9 @@ confirm() {
     -p "  Confirm" \
     -mesg "$msg" \
     -theme "$THEME" \
+    -hover-select \
+    -me-select-entry '' \
+    -me-accept-entry 'MousePrimary' \
     -no-custom \
     -format s \
     -lines 2 \

@@ -8,9 +8,12 @@
 THEME=$(cat "$HOME/.config/rofi/theme")
 
 rofi \
-  -p "  Apps" \
+  -display-drun "  Apps" \
   -show drun \
   -drun-display-format "{name}" \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry 'MousePrimary' \
   -show-icons \
   -columns 1 \
   -theme "$THEME" \
