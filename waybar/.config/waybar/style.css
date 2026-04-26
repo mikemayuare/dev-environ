@@ -4,7 +4,7 @@
 /* ----------------------------------------------------------------------------- Global Reset
  * -------------------------------------------------------------------------- */
 * {
-    font-family: "Ubuntu Nerd Font Propo", "Roboto", sans-serif;
+    font-family: "Ubuntu Nerd Font Propo";
     font-size: 14px;
     min-height: 0;
 }
@@ -16,25 +16,22 @@ window#waybar {
     background-color: @w-bg-main;
     color: @w-txt-main;
     transition-property: background-color;
-    border-bottom: 1px solid @w-border;
+    border: 1px solid @w-border;
+    border-radius: 2px;
     transition-duration: .5s;
-    padding: 0 5px;
 }
 
 #workspaces button {
-    padding: 0 5px;
     color: @w-txt-main;
     background: transparent;
     transition: all 0.1s ease;
+    margin: 4px 0;
 }
 
 #workspaces button.active {
     color: @w-bg-hover;
     background: @w-highlight;
-    border-radius: 0px;
-    min-width: 30px;
-    padding-right: 10px;
-    margin: 4px 0;
+    border-radius: 2px;
 }
 
 #workspaces button:hover {
@@ -49,8 +46,8 @@ window#waybar {
 
 #custom-expand-icon {
     color: @w-txt-main;
-    margin: 6px 5px;
-    padding: 4px 6px;
+    margin: 0 5px;
+    padding: 0 6px;
 }
 
 #custom-launcher {
@@ -70,13 +67,13 @@ window#waybar {
 #custom-notification {
     /* background-color: @w-bg-module; */
     color: @w-txt-main;
-    margin: 6px 5px;
-    padding: 0px 4px;
+    margin: 0 5px;
+    padding: 0 4px;
     transition: color 0.15s ease;
 }
 
 #workspaces {
-  padding-left: 14px;
+  padding-left: 6px;
 }
 
 #custom-notification {
@@ -100,7 +97,7 @@ window#waybar {
 }
 
 #custom-gpu-memory {
-    padding-left: 10px;
+    padding-left: 6px;
 }
 /* Specific colors for icons using semantic names */
 #privacy {
@@ -124,7 +121,6 @@ window#waybar {
 
 #pulseaudio {
     padding-left: 12px;
-    padding-right: 12px;
     transition: color 0.3s ease;
 }
 
@@ -134,7 +130,6 @@ window#waybar {
 
 #network {
     transition: color 0.3s ease;
-    padding-right: 6px;
 }
 
 #network:hover {
