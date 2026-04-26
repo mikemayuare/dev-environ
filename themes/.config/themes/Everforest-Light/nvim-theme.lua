@@ -1,7 +1,12 @@
 return {
 	{
 		"neanias/everforest-nvim",
-		opts = { background = "light" },
+		config = function()
+			require("everforest").setup({
+				background = "hard",
+			})
+			vim.o.background = "light"
+		end,
 	},
 	{
 		"LazyVim/LazyVim",

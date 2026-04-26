@@ -1,11 +1,10 @@
 /* Catppuccin Frappé */
 :root {
-  --border-radius: 0px;
   --base:     #303446;
   --mantle:   #292c3c;
   --crust:    #232634;
   --surface0: #414559;
-  --surface1: #51576d;
+  --surface1: #51576d88;
   --surface2: #626880;
   --text:     #c6d0f5;
   --accent:   #f4b8e4;   /* blue */

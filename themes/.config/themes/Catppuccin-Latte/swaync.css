@@ -1,11 +1,10 @@
 /* Catppuccin Latte */
 :root {
-  --border-radius: 0px;
   --base:     #eff1f5;
   --mantle:   #e6e9ef;
   --crust:    #dce0e8;
   --surface0: #ccd0da;
-  --surface1: #bcc0cc;
+  --surface1: #bcc0cc88;
   --surface2: #acb0be;
   --text:     #4c4f69;
   --accent:   #1e66f5;

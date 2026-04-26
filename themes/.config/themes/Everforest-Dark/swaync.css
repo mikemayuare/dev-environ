@@ -1,11 +1,10 @@
 /* Everforest Dark Hard */
 :root {
-  --border-radius: 0px;
   --base:     #272e33;
   --mantle:   #2e383c;
   --crust:    #1e2326;
   --surface0: #374145;
-  --surface1: #414b50;
+  --surface1: #414b5088;
   --surface2: #495156;
   --text:     #d3c6aa;
   --accent:   #83c092;

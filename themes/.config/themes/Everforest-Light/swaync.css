@@ -1,11 +1,10 @@
 /* Everforest Light Hard */
 :root {
-  --border-radius: 0px;
   --base:     #fff9ef;
   --mantle:   #f4f0e3;
   --crust:    #edeada;
   --surface0: #e5dfc5;
-  --surface1: #ddd8be;
+  --surface1: #ddd8be88;
   --surface2: #cfc9b4;
   --text:     #5c6a72;
   --accent:   #8da101;

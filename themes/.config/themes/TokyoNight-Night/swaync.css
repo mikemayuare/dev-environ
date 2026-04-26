@@ -1,11 +1,10 @@
 /* Tokyo Night */
 :root {
-  --border-radius: 0px;
   --base:     #1a1b26;
   --mantle:   #16161e;
   --crust:    #13131a;
   --surface0: #1f2335;
-  --surface1: #24283b;
+  --surface1: #24283b88;
   --surface2: #292e42;
   --text:     #c0caf5;
   --accent:   #7aa2f7;
