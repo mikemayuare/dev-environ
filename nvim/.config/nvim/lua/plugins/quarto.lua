@@ -2,44 +2,62 @@ return {
   { -- Quarto plugin for .qmd files
     "quarto-dev/quarto-nvim",
     dev = false,
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      -- in your otter.nvim opts or setup call
+      opts = {
+        lsp = {
+          diagnostic_update_events = { "BufWritePost", "InsertLeave" },
+        },
+      },
+    },
     opts = {
       lspFeatures = {
         enabled = true,
-        chunks = "curly",
+        chunks = "all",
+        languages = { "python" },
+        diagnostics = {
+          enabled = true,
+          triggers = { "BufWritePost" },
+        },
+        completion = {
+          enabled = true,
+        },
       },
       codeRunner = {
         enabled = true,
-        default_method = "iron", -- Using iron.nvim instead of slime
+        default_method = "iron",
       },
-    },
-    dependencies = {
-      -- For language features in code cells
-      "jmbuhr/otter.nvim",
     },
     config = function(_, opts)
       require("quarto").setup(opts)
-
-      -- Quarto keybindings for running code
       local runner = require("quarto.runner")
       vim.keymap.set("n", "<leader>ic", runner.run_cell, { desc = "run cell", silent = true })
       vim.keymap.set("n", "<leader>ia", runner.run_above, { desc = "run cell and above", silent = true })
       vim.keymap.set("n", "<leader>iA", runner.run_all, { desc = "run all cells", silent = true })
       vim.keymap.set("n", "<leader>il", runner.run_line, { desc = "run line", silent = true })
       vim.keymap.set("v", "<leader>i", runner.run_range, { desc = "run visual range", silent = true })
-      -- Run all cells of all languages
       vim.keymap.set("n", "<leader>iR", function()
         runner.run_all(true)
       end, { desc = "run all cells of all languages", silent = true })
-
-      -- Start quarto preview in browser (live preview server)
       vim.keymap.set("n", "<leader>ip", function()
-        vim.fn.jobstart("quarto preview " .. vim.fn.expand("%"), { detach = true })
+        vim.fn.jobstart("quarto preview " .. vim.fn.expand("%")) -- { detach = true })
       end, { desc = "start quarto preview" })
-
-      -- Render current document (execute all code once)
       vim.keymap.set("n", "<leader>ir", function()
         vim.cmd("!quarto render %")
       end, { desc = "render quarto document" })
+      vim.keymap.set("n", "<leader>io", function()
+        local iron = require("iron.core")
+        -- find if there's a visible python repl window
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          if vim.bo[buf].filetype == "iron" then
+            vim.api.nvim_win_close(win, false)
+            return
+          end
+        end
+        iron.show_repl("python")
+      end, { desc = "toggle repl window" })
     end,
   },
 

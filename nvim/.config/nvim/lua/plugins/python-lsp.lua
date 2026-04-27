@@ -2,6 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = {
+        virtual_text = false,
+      },
       servers = {
         -- Ruff for formatting and import sorting
         ruff = {

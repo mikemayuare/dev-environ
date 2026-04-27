@@ -1,10 +1,12 @@
 return {
   "saghen/blink.cmp",
+  dependencies = {
+    "jmbuhr/otter.nvim",
+  },
   opts = {
-    keymap = {
-      -- preset = "default",
-      -- ["<Tab>"] = { "accept", "fallback" },
-      -- ["<CR>"] = { "fallback" }, -- make Enter insert newline normally
+    keymap = {},
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
     },
   },
 }

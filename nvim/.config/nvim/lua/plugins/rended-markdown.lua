@@ -9,12 +9,12 @@ return {
       },
       heading = {
         enabled = true,
-        render_modes = false,
+        render_modes = true,
         atx = true,
         setext = true,
         sign = true,
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-        position = "overlay",
+        position = "center",
         signs = { "󰫎 " },
         width = "full",
         left_margin = 0,
@@ -56,7 +56,7 @@ return {
         position = "overlay",
       },
     },
-    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+    ft = { "markdown", "norg", "rmd", "org", "codecompanion", "quarto", "qmd" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
       Snacks.toggle({
