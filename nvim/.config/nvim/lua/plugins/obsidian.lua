@@ -19,7 +19,7 @@ return {
     workspaces = {
       {
         name = "data_science",
-        path = "~/data-science/obsidian/data_science/",
+        path = "~/obsidian/data_science/",
       },
     },
     templates = {
