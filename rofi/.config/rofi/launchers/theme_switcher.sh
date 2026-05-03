@@ -212,6 +212,17 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# Zen Browser
+# ---------------------------------------------------------------------------
+ZEN_PROFILE=$(find "$HOME/.config/zen" -maxdepth 1 -type d -name "*.Default*" | head -n1)
+if [[ -n "$ZEN_PROFILE" ]]; then
+  mkdir -p "$ZEN_PROFILE/chrome"
+  apply "$THEME_PATH/userChrome.css" "$ZEN_PROFILE/chrome/userChrome.css" "zen userChrome.css"
+else
+  echo "Warning: zen profile directory not found" >&2
+fi
+
+# ---------------------------------------------------------------------------
 # Reload apps
 # ---------------------------------------------------------------------------
 killall swaync 2>/dev/null

@@ -1,0 +1,65 @@
+/* TokyoNight Night — Zen Browser chrome */
+
+:root {
+    --chrome-bg: #1a1b26 !important;
+    --chrome-container: #24283b !important;
+    --chrome-accent: #7aa2f7 !important;
+    --chrome-text: #cfc9c2 !important;
+    --chrome-secondary: #a1c0eb !important;
+
+    --zen-main-browser-background: var(--chrome-bg) !important;
+    --zen-sidebar-background: var(--chrome-bg) !important;
+    --zen-navigator-toolbox-background: var(--chrome-bg) !important;
+    --zen-browser-generic-background: var(--chrome-bg) !important;
+}
+
+#zen-sidebar-container,
+#sidebar-box,
+#TabsToolbar,
+#navigation-toolbox,
+.zen-sidebar-workspace-container {
+    background-color: var(--chrome-bg) !important;
+    appearance: none !important;
+}
+
+#zen-sidebar-container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+tab {
+    font-family: "JetBrains Mono", monospace !important;
+    border-radius: 0px !important;
+    margin: 0 !important;
+}
+
+tab[selected="true"] .tab-background {
+    background-color: var(--chrome-container) !important;
+    border-left: 3px solid var(--chrome-secondary) !important;
+    box-shadow: none !important;
+}
+
+tab[selected="true"] .tab-label {
+    color: var(--chrome-secondary) !important;
+}
+
+#urlbar-background {
+    background-color: #0f1016 !important;
+    border: 1px solid var(--chrome-container) !important;
+}
+
+#urlbar-input {
+    color: var(--chrome-accent) !important;
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+toolbar#nav-bar {
+    background-color: var(--chrome-bg) !important;
+    box-shadow: none !important;
+}
+
+* {
+    border-radius: 2px !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}

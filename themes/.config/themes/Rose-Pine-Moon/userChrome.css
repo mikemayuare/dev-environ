@@ -1,0 +1,65 @@
+/* Rose Pine Moon — Zen Browser chrome */
+
+:root {
+    --chrome-bg: #232136 !important;
+    --chrome-container: #322f49 !important;
+    --chrome-accent: #c4a7e7 !important;
+    --chrome-text: #e0def4 !important;
+    --chrome-secondary: #9ccfd8 !important;
+
+    --zen-main-browser-background: var(--chrome-bg) !important;
+    --zen-sidebar-background: var(--chrome-bg) !important;
+    --zen-navigator-toolbox-background: var(--chrome-bg) !important;
+    --zen-browser-generic-background: var(--chrome-bg) !important;
+}
+
+#zen-sidebar-container,
+#sidebar-box,
+#TabsToolbar,
+#navigation-toolbox,
+.zen-sidebar-workspace-container {
+    background-color: var(--chrome-bg) !important;
+    appearance: none !important;
+}
+
+#zen-sidebar-container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+tab {
+    font-family: "JetBrains Mono", monospace !important;
+    border-radius: 0px !important;
+    margin: 0 !important;
+}
+
+tab[selected="true"] .tab-background {
+    background-color: var(--chrome-container) !important;
+    border-left: 3px solid var(--chrome-secondary) !important;
+    box-shadow: none !important;
+}
+
+tab[selected="true"] .tab-label {
+    color: var(--chrome-secondary) !important;
+}
+
+#urlbar-background {
+    background-color: #151320 !important;
+    border: 1px solid var(--chrome-container) !important;
+}
+
+#urlbar-input {
+    color: var(--chrome-accent) !important;
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+toolbar#nav-bar {
+    background-color: var(--chrome-bg) !important;
+    box-shadow: none !important;
+}
+
+* {
+    border-radius: 2px !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
