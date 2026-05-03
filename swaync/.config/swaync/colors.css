@@ -1,16 +1,16 @@
-/* Everforest Dark Hard */
+/* Retro 82 */
 :root {
-  --base:     #272e33;
-  --mantle:   #2e383c;
-  --crust:    #1e2326;
-  --surface0: #374145;
-  --surface1: #414b5088;
-  --surface2: #495156;
-  --text:     #d3c6aa;
-  --accent:   #83c092;
+  --base:       #00172E;
+  --mantle:     #01204E;
+  --crust:      #00172E;
+  --surface0:   #0A3A45;
+  --surface1:   #134E5A88;
+  --surface2:   #2A6A73;
+  --text:       #FFF1DA;
+  --accent:     #FAA968;
   --widget-background: var(--surface1);
-  --cc-bg:    var(--widget-background);
+  --cc-bg:      var(--widget-background);
   --noti-bg-alpha: 1;
-  --border:   2px solid var(--accent);
-  --padding:  15px;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
 }

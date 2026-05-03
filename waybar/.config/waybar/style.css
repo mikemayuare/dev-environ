@@ -16,7 +16,7 @@ window#waybar {
     background-color: @w-bg-main;
     color: @w-txt-main;
     transition-property: background-color;
-    border: 1px solid @w-border;
+    border: 2px solid @w-border;
     border-radius: 2px;
     transition-duration: .5s;
 }
