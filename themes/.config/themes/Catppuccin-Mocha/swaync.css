@@ -1,0 +1,16 @@
+/* Catppuccin Mocha */
+:root {
+  --base:       #1e1e2e;
+  --mantle:     #181825;
+  --crust:      #11111b;
+  --surface0:   #313244;
+  --surface1:   #45475a88; /* 88 is the alpha transparency from your original */
+  --surface2:   #585b70;
+  --text:       #cdd6f4;
+  --accent:     #f5c2e7;   /* Pink */
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

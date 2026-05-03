@@ -1,0 +1,10 @@
+/* Catppuccin Mocha — Waybar colors */
+@define-color w-bg-main      #1e1e2e;   /* base */
+@define-color w-bg-module    #313244;   /* surface0 */
+@define-color w-bg-hover     #45475a;   /* surface1 */
+@define-color w-txt-main     #cdd6f4;   /* text */
+@define-color w-accent       #89b4fa;   /* blue — hover / interactive */
+@define-color w-highlight    #f5c2e7;   /* pink — active workspace, tooltip border */
+@define-color w-border       #6c7086;   /* overlay0 */
+@define-color w-accent-crit  #f38ba8;   /* red */
+@define-color w-accent-warn  #f9e2af;   /* yellow */

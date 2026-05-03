@@ -1,0 +1,16 @@
+/* Catppuccin Macchiato */
+:root {
+  --base:       #24273a;
+  --mantle:     #1e2030;
+  --crust:      #181926;
+  --surface0:   #363a4f;
+  --surface1:   #494d6488; /* 88 is the alpha transparency from your original */
+  --surface2:   #5b6078;
+  --text:       #cad3f5;
+  --accent:     #f5bde6;   /* Pink */
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

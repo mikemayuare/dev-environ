@@ -1,0 +1,16 @@
+/* Rosé Pine */
+:root {
+  --base:       #191724;
+  --mantle:     #1f1d2e;
+  --crust:      #16141f;
+  --surface0:   #26233a;
+  --surface1:   #403d5288;
+  --surface2:   #524f67;
+  --text:       #e0def4;
+  --accent:     #c4a7e7;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

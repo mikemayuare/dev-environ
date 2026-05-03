@@ -1,0 +1,16 @@
+/* Rosé Pine Moon */
+:root {
+  --base:       #232136;
+  --mantle:     #2a273f;
+  --crust:      #1f1d30;
+  --surface0:   #393552;
+  --surface1:   #44415a88;
+  --surface2:   #56526e;
+  --text:       #e0def4;
+  --accent:     #c4a7e7;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

@@ -1,0 +1,10 @@
+/* Rosé Pine — Waybar colors */
+@define-color w-bg-main      #191724;
+@define-color w-bg-module    #26233a;
+@define-color w-bg-hover     #403d52;
+@define-color w-txt-main     #e0def4;
+@define-color w-accent       #9ccfd8;
+@define-color w-highlight    #ebbcba;
+@define-color w-border       #6e6a86;
+@define-color w-accent-crit  #eb6f92;
+@define-color w-accent-warn  #f6c177;

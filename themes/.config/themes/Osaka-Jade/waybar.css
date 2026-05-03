@@ -1,0 +1,10 @@
+/* Osaka Jade — Waybar colors */
+@define-color w-bg-main      #111c18;
+@define-color w-bg-module    #23372B;
+@define-color w-bg-hover     #2a3530;
+@define-color w-txt-main     #C1C497;
+@define-color w-accent       #2DD5B7;
+@define-color w-highlight    #D2689C;
+@define-color w-border       #2DD5B7;
+@define-color w-accent-crit  #FF5345;
+@define-color w-accent-warn  #E5C736;

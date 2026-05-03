@@ -1,0 +1,10 @@
+/* Kanagawa Dragon — Waybar colors */
+@define-color w-bg-main      #181616;
+@define-color w-bg-module    #282727;
+@define-color w-bg-hover     #393836;
+@define-color w-txt-main     #c5c9c5;
+@define-color w-accent       #8ba4b0;
+@define-color w-highlight    #a292a3;
+@define-color w-border       #8ba4b0;
+@define-color w-accent-crit  #c4746e;
+@define-color w-accent-warn  #c4b28a;

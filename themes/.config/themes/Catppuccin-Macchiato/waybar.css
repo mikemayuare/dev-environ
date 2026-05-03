@@ -1,0 +1,10 @@
+/* Catppuccin Macchiato — Waybar colors */
+@define-color w-bg-main      #24273a;   /* base */
+@define-color w-bg-module    #363a4f;   /* surface0 */
+@define-color w-bg-hover     #494d64;   /* surface1 */
+@define-color w-txt-main     #cad3f5;   /* text */
+@define-color w-accent       #8aadf4;   /* blue — hover / interactive */
+@define-color w-highlight    #f5bde6;   /* pink — active workspace, tooltip border */
+@define-color w-border       #6e738d;   /* overlay0 */
+@define-color w-accent-crit  #ed8796;   /* red */
+@define-color w-accent-warn  #eed49f;   /* yellow */

@@ -1,0 +1,16 @@
+/* Kanagawa Lotus */
+:root {
+  --base:       #f2ecbc;
+  --mantle:     #e5ddb0;
+  --crust:      #d5cea3;
+  --surface0:   #e7dba0;
+  --surface1:   #e4d79488;
+  --surface2:   #dcd7ba;
+  --text:       #545464;
+  --accent:     #4d699b;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

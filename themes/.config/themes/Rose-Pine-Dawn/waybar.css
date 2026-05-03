@@ -1,0 +1,10 @@
+/* Rosé Pine Dawn — Waybar colors */
+@define-color w-bg-main      #faf4ed;
+@define-color w-bg-module    #f2e9e1;
+@define-color w-bg-hover     #dfdad9;
+@define-color w-txt-main     #464261;
+@define-color w-accent       #56949f;
+@define-color w-highlight    #d7827e;
+@define-color w-border       #9893a5;
+@define-color w-accent-crit  #b4637a;
+@define-color w-accent-warn  #ea9d34;

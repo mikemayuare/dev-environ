@@ -1,0 +1,16 @@
+/* Kanagawa Dragon */
+:root {
+  --base:       #181616;
+  --mantle:     #1D1C19;
+  --crust:      #0d0c0c;
+  --surface0:   #282727;
+  --surface1:   #39383688;
+  --surface2:   #625e5a;
+  --text:       #c5c9c5;
+  --accent:     #8ba4b0;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

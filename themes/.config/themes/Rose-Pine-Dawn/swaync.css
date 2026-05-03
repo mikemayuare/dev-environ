@@ -1,0 +1,16 @@
+/* Rosé Pine Dawn */
+:root {
+  --base:       #faf4ed;
+  --mantle:     #fffaf3;
+  --crust:      #f8f0e7;
+  --surface0:   #f2e9e1;
+  --surface1:   #dfdad988;
+  --surface2:   #cecacd;
+  --text:       #464261;
+  --accent:     #907aa9;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

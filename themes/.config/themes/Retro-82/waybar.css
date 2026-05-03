@@ -1,0 +1,10 @@
+/* Retro 82 — Waybar colors */
+@define-color w-bg-main      #00172E;
+@define-color w-bg-module    #0A3A45;
+@define-color w-bg-hover     #134E5A;
+@define-color w-txt-main     #A7C9C6;
+@define-color w-accent       #8CBFB8;
+@define-color w-highlight    #FAA968;
+@define-color w-border       #FAA968;
+@define-color w-accent-crit  #F85525;
+@define-color w-accent-warn  #E97B3C;

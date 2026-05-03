@@ -1,0 +1,16 @@
+/* Osaka Jade */
+:root {
+  --base:       #111c18;
+  --mantle:     #1a2520;
+  --crust:      #111c18;
+  --surface0:   #23372B;
+  --surface1:   #2a353088;
+  --surface2:   #53685B;
+  --text:       #C1C497;
+  --accent:     #2DD5B7;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

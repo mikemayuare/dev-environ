@@ -1,0 +1,16 @@
+/* Kanagawa Wave */
+:root {
+  --base:       #1F1F28;
+  --mantle:     #1a1a22;
+  --crust:      #16161D;
+  --surface0:   #2A2A37;
+  --surface1:   #36364688;
+  --surface2:   #54546D;
+  --text:       #DCD7BA;
+  --accent:     #957FB8;
+  --widget-background: var(--surface1);
+  --cc-bg:      var(--widget-background);
+  --noti-bg-alpha: 1;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
+}

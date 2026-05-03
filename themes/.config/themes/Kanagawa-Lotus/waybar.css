@@ -1,0 +1,10 @@
+/* Kanagawa Lotus — Waybar colors */
+@define-color w-bg-main      #f2ecbc;
+@define-color w-bg-module    #e7dba0;
+@define-color w-bg-hover     #e4d794;
+@define-color w-txt-main     #545464;
+@define-color w-accent       #4d699b;
+@define-color w-highlight    #624c83;
+@define-color w-border       #a09cac;
+@define-color w-accent-crit  #c84053;
+@define-color w-accent-warn  #e98a00;
