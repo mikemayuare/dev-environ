@@ -4,7 +4,7 @@
 # Dependencies: rofi, imagemagick, hyprpaper, hyprlock
 
 # Configuration
-WALLPAPER_DIR="$HOME/Images"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 HYPRPAPER_CONFIG="$HOME/.config/hypr/hyprpaper.conf"
 HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
 CACHE_DIR="$HOME/.cache/wallpaper-picker"

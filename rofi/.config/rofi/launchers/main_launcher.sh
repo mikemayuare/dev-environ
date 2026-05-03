@@ -25,8 +25,9 @@ add_entry() { # add_entry "ICON  Label" "/path/to/script.sh"
 
 add_entry "  App Launcher" "$HOME/.config/rofi/launchers/app_drawer.sh"
 add_entry "  Clipboard Manager" "$HOME/.config/rofi/launchers/clipboard.sh"
-add_entry "  Internet Search" "$HOME/.config/rofi/launchers/internet_search.sh"
 add_entry "  Settings" "$HOME/.config/rofi/launchers/settings.sh"
+add_entry "  Internet Search" "$HOME/.config/rofi/launchers/internet_search.sh"
+add_entry "  Reload Hyprland" "/usr/bin/hyprctl reload"
 add_entry "  Power Menu" "$HOME/.config/rofi/launchers/power_menu.sh"
 
 # ── End of entries ──────────────────────────────────────────────────────────
@@ -55,20 +56,23 @@ CHOICE=$(echo "$MENU" | rofi \
 [[ -z "$CHOICE" ]] && exit 0
 
 # ---------------------------------------------------------------------------
-# Execute the chosen script
+# Execute the chosen script or command
 # ---------------------------------------------------------------------------
 TARGET="${SCRIPTS[$CHOICE]}"
 
-if [[ -z "$TARGET" ]]; then
-  notify-send "Launcher" "No script mapped for: $CHOICE" --icon=dialog-error 2>/dev/null
-  exit 1
-fi
+# Abort if no target found
+[[ -z "$TARGET" ]] && exit 1
 
-if [[ ! -x "$TARGET" ]]; then
-  notify-send "Launcher" "Script not found or not executable:\n$TARGET" --icon=dialog-warning 2>/dev/null
-  # Uncomment the line below to auto-chmod instead of erroring:
-  # chmod +x "$TARGET" && bash "$TARGET"
-  exit 1
+# Check if the target is a file on disk
+if [[ -f "$TARGET" ]]; then
+  # If it's a file, make sure it's executable and run it
+  if [[ -x "$TARGET" ]]; then
+    bash "$TARGET"
+  else
+    notify-send "Launcher" "Script not executable: $TARGET" --icon=dialog-warning
+    exit 1
+  fi
+else
+  # If it's NOT a file, treat it as a raw command (like hyprctl reload)
+  eval "$TARGET"
 fi
-
-bash "$TARGET"
