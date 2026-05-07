@@ -23,12 +23,12 @@ add_entry() { # add_entry "ICON  Label" "/path/to/script.sh"
 # ── Edit entries below ──────────────────────────────────────────────────────
 #  add_entry "ICON  Friendly Name"   "/path/to/your/script.sh"
 
-add_entry "  Bluetooth" "$HOME/.config/waybar/toggle_bluetui.sh"
-add_entry "  Keyboard Layout" "$HOME/.config/rofi/launchers/keyboards.sh"
-add_entry "  Monitors" "$HOME/.config/rofi/launchers/respicker.sh"
-add_entry "  Network" "$HOME/.config/waybar/toggle_netpala.sh"
 add_entry "  Themes" "$HOME/.config/rofi/launchers/theme_switcher.sh"
 add_entry "  Wallpapers" "$HOME/.config/rofi/launchers/wallpicker.sh"
+add_entry "  Keyboard Layout" "$HOME/.config/rofi/launchers/keyboards.sh"
+add_entry "  Bluetooth" "$HOME/.config/waybar/toggle_bluetui.sh"
+add_entry "  Monitors" "$HOME/.config/rofi/launchers/respicker.sh"
+add_entry "  Network" "$HOME/.config/waybar/toggle_netpala.sh"
 add_entry "  Sound" "$HOME/.config/waybar/toggle_wiremix.sh"
 
 # ── End of entries ──────────────────────────────────────────────────────────

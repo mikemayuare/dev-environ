@@ -112,3 +112,7 @@ textbox {
     text-color: @fg0;
     background-color: transparent;
 }
+
+element-icon {
+  size: 2em;
+}

@@ -1,7 +1,7 @@
 # theme
-theme = Nord
+theme = retro-82
 
-font-size = 18
+font-size = 16
 font-family = Iosevka Nerd Font Mono
 # cursor
 cursor-style-blink = true
@@ -9,7 +9,7 @@ shell-integration-features = no-cursor
 cursor-style = block
 
 # background
-background-opacity = 0.85
+background-opacity = 0.80
 
 # Window
 window-padding-x = 16

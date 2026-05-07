@@ -36,8 +36,6 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
-# opencode
-fish_add_path /home/migue/.opencode/bin
 
 # uv
 fish_add_path "/home/migue/.local/share/../bin"
