@@ -9,7 +9,7 @@
     fg0:     #4c4f69;
     fg1:     #5c5f77;
     fg2:     #9ca0b0;
-    accent:  #1e66f5;
+    accent:  #ea76cb;
     urgent:  #d20f39;
     background-color: transparent;
     text-color:       @fg0;

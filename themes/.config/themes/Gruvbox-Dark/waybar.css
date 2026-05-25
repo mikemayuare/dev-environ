@@ -5,6 +5,6 @@
 @define-color w-txt-main    #ebdbb2;
 @define-color w-accent      #fabd2f;   /* yellow — hover / interactive */
 @define-color w-highlight   #fe8019;   /* orange — active workspace, tooltip border */
-@define-color w-border      #665c54;
+@define-color w-border      #fabd2f;
 @define-color w-accent-crit #cc241d;
 @define-color w-accent-warn #d79921;

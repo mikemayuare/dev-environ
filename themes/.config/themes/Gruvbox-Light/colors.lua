@@ -1,0 +1,24 @@
+hl.config({
+  general = {
+    col = {
+      active_border = "rgb(b57614)",
+      inactive_border = "rgba(a89984aa)",
+    },
+  },
+  decoration = {
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
+    shadow = {
+      enabled = true,
+      range = 8,
+      render_power = 3,
+      color = "rgba(b57614aa)",
+    },
+    blur = {
+      enabled = true,
+      size = 4,
+      passes = 2,
+      vibrancy = 0.1696,
+    },
+  },
+})
