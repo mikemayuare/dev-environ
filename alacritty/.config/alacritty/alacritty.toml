@@ -5,7 +5,7 @@ TERM = "xterm-256color"
 normal = { family = "Iosevka Nerd Font Mono" }
 bold = { family = "Iosevka Nerd Font Mono" }
 italic = { family = "Iosevka Nerd Font Mono" }
-size = 18
+size = 16
 
 [window]
 padding.x = 16
@@ -14,4 +14,5 @@ decorations = "None"
 opacity = 0.95
 
 [general]
-import = ["nord.toml"]
+live_config_reload = true
+import = ["current-theme.toml"]
