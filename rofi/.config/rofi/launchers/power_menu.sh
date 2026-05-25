@@ -10,11 +10,12 @@ THEME=$(cat "$HOME/.config/rofi/theme")
 # ---------------------------------------------------------------------------
 # Entries — icon + label : loginctl command
 # ---------------------------------------------------------------------------
+LOCK_SCREEN="  Lock Screen"
 POWEROFF="  Power Off"
 RESTART="  Restart"
 SUSPEND="  Suspend"
 
-MENU=$(printf '%s\n' "$SUSPEND" "$RESTART" "$POWEROFF")
+MENU=$(printf '%s\n' "$LOCK_SCREEN" "$SUSPEND" "$RESTART" "$POWEROFF")
 
 LINES=$(echo "$MENU" | wc -l)
 # ---------------------------------------------------------------------------
@@ -55,6 +56,9 @@ confirm() {
 # Execute
 # ---------------------------------------------------------------------------
 case "$CHOICE" in
+"$LOCK_SCREEN")
+  loginctl lock-session
+  ;;
 "$POWEROFF")
   ans=$(confirm "Power off the system?")
   [[ "$ans" == "Yes" ]] && loginctl poweroff

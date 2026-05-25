@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # =============================================================================
 #  themeswitcher.sh — Unified Theme Switcher
-#  Switches: rofi · swaync · waybar · hyprland borders · ghostty
+#  Switches: rofi · swaync · waybar · hyprland borders · ghostty ·
+#            alacritty · kitty
 #
 #  Theme dir structure:
 #    ~/.config/themes/<n>/
 #      swaync.css      → colors for swaync
 #      waybar.css      → colors for waybar
-#      hyprland.conf   → border colors for hyprland
+#      colors.lua      → hyprland border colors
 #      ghostty         → built-in theme name (plain text, one line)
+#      alacritty       → alacritty TOML colour theme
+#      kitty            → kitty conf colour theme
 #    ~/.config/rofi/themes/<n>.rasi  → rofi theme
 # =============================================================================
 
@@ -18,8 +21,11 @@ ROFI_THEMES_DIR="$HOME/.config/themes"
 ROFI_THEME_FILE="$HOME/.config/rofi/theme"
 SWAYNC_COLORS="$HOME/.config/swaync/colors.css"
 WAYBAR_COLORS="$HOME/.config/waybar/colors.css"
-HYPR_COLORS="$HOME/.config/hypr/colors.conf"
+HYPR_COLORS="$HOME/.config/hypr/lua/colors.lua"
 GHOSTTY_CONFIG="$HOME/.config/ghostty/config"
+ALACRITTY_CONFIG="$HOME/.config/alacritty/alacritty.toml"
+ALACRITTY_THEME="$HOME/.config/alacritty/current-theme.toml"
+KITTY_THEME="$HOME/.config/kitty/current-theme.conf"
 CURRENT_FILE="$THEMES_DIR/current"
 
 # ---------------------------------------------------------------------------
@@ -97,7 +103,9 @@ apply() {
 
 apply "$THEME_PATH/swaync.css" "$SWAYNC_COLORS" "swaync colors"
 apply "$THEME_PATH/waybar.css" "$WAYBAR_COLORS" "waybar colors"
-apply "$THEME_PATH/hyprland.conf" "$HYPR_COLORS" "hyprland colors"
+apply "$THEME_PATH/colors.lua" "$HYPR_COLORS" "hyprland colors"
+apply "$THEME_PATH/alacritty" "$ALACRITTY_THEME" "alacritty theme"
+apply "$THEME_PATH/kitty" "$KITTY_THEME" "kitty theme"
 
 # rofi
 
@@ -229,5 +237,8 @@ killall swaync 2>/dev/null
 pkill -SIGUSR2 waybar 2>/dev/null
 hyprctl reload 2>/dev/null
 killall -SIGUSR2 ghostty 2>/dev/null
+
+touch "$ALACRITTY_CONFIG" 2>/dev/null
+kitty @ set-colors --all --configured 2>/dev/null
 
 notify-send "Theme Switcher" "Theme set to: $CHOSEN" --icon=preferences-desktop-theme 2>/dev/null

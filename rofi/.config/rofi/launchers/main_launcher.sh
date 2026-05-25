@@ -23,9 +23,9 @@ add_entry() { # add_entry "ICON  Label" "/path/to/script.sh"
 # ── Edit entries below ──────────────────────────────────────────────────────
 #  add_entry "ICON  Friendly Name"   "/path/to/your/script.sh"
 
+add_entry "  Settings" "$HOME/.config/rofi/launchers/settings.sh"
 add_entry "  App Launcher" "$HOME/.config/rofi/launchers/app_drawer.sh"
 add_entry "  Clipboard Manager" "$HOME/.config/rofi/launchers/clipboard.sh"
-add_entry "  Settings" "$HOME/.config/rofi/launchers/settings.sh"
 add_entry "  Internet Search" "$HOME/.config/rofi/launchers/internet_search.sh"
 add_entry "  Reload Hyprland" "/usr/bin/hyprctl reload"
 add_entry "  Power Menu" "$HOME/.config/rofi/launchers/power_menu.sh"

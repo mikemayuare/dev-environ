@@ -4,7 +4,7 @@
 # Dependencies: rofi, jq, hyprland
 
 # Configuration
-MONITORS_CONFIG="$HOME/.config/hypr/monitors.conf"
+MONITORS_CONFIG="$HOME/.config/hypr/lua/monitors.lua"
 THEME_FILE=$(cat "$HOME/.config/rofi/theme")
 
 # Fallback resolutions for main monitor if detection fails
@@ -56,32 +56,32 @@ format_resolution() {
   echo "$res"
 }
 
-# Function to get current monitor configuration
-get_current_config() {
+# Extract hl.monitor({...}) block for a given monitor from lua config
+get_lua_block() {
   local monitor="$1"
-  if [[ -f "$MONITORS_CONFIG" ]]; then
-    grep "^monitor = $monitor," "$MONITORS_CONFIG" || echo ""
-  fi
+  if [[ ! -f "$MONITORS_CONFIG" ]]; then echo ""; return; fi
+  awk -v mon="$monitor" '
+    /^[[:space:]]*hl\.monitor\(\{/ { inb=1; buf=$0 "\n"; next }
+    inb {
+      buf=buf $0 "\n"
+      if (/^[[:space:]]*\}\)/) {
+        inb=0
+        if (index(buf, "output = \"" mon "\"")) { printf "%s", buf; exit }
+        buf=""
+      }
+    }
+  ' "$MONITORS_CONFIG"
 }
 
-# Function to extract current bit depth from config
-get_current_bitdepth() {
-  local config_line="$1"
-  if [[ "$config_line" =~ bitdepth[[:space:]]*,[[:space:]]*([0-9]+) ]]; then
-    echo "${BASH_REMATCH[1]}"
-  else
-    echo "8" # Default
-  fi
-}
-
-# Function to extract current cm from config
-get_current_cm() {
-  local config_line="$1"
-  if [[ "$config_line" =~ cm[[:space:]]*,[[:space:]]*([a-z0-9]+) ]]; then
-    echo "${BASH_REMATCH[1]}"
-  else
-    echo "auto" # Default
-  fi
+# Extract a field value from the lua monitor block
+get_lua_field() {
+  local monitor="$1" field="$2" default="$3"
+  local block
+  block=$(get_lua_block "$monitor")
+  if [[ -z "$block" ]]; then echo "$default"; return; fi
+  local val
+  val=$(echo "$block" | grep -oP '^\s*'"$field"'\s*=\s*"?\K[^",\s]+' | head -1)
+  echo "${val:-$default}"
 }
 
 # Check if Hyprland is running
@@ -118,10 +118,9 @@ fi
 
 echo "Selected monitor: $selected_monitor"
 
-# Get current configuration for this monitor
-current_config=$(get_current_config "$selected_monitor")
-current_bitdepth=$(get_current_bitdepth "$current_config")
-current_cm=$(get_current_cm "$current_config")
+# Get current configuration for this monitor from lua
+current_bitdepth=$(get_lua_field "$selected_monitor" "bitdepth" "8")
+current_cm=$(get_lua_field "$selected_monitor" "cm" "auto")
 
 echo "Current bit depth: $current_bitdepth"
 echo "Current color management: $current_cm"
@@ -218,18 +217,9 @@ fi
 
 echo "Selected color management: $selected_cm"
 
-# Build the monitor configuration line
-monitor_line="monitor = $selected_monitor, $clean_resolution, auto, 1"
-
-# Add bit depth if not default (8)
-if [[ "$selected_bitdepth" != "8" ]]; then
-  monitor_line+=", bitdepth, $selected_bitdepth"
-fi
-
-# Add color management if not auto
-if [[ "$selected_cm" != "auto" ]]; then
-  monitor_line+=", cm, $selected_cm"
-fi
+# Track SDR values for hyprctl (set later if HDR configured)
+sdr_brightness_val=""
+sdr_saturation_val=""
 
 # If HDR is selected, optionally add SDR brightness/saturation controls
 if [[ "$selected_cm" == "hdr" ]] || [[ "$selected_cm" == "hdredid" ]]; then
@@ -242,50 +232,88 @@ if [[ "$selected_cm" == "hdr" ]] || [[ "$selected_cm" == "hdredid" ]]; then
 
   if [[ "$configure_sdr" == "Yes" ]]; then
     # SDR brightness (0.5 to 2.0, default 1.0)
-    sdr_brightness=$(rofi -dmenu -i \
+    sdr_brightness_val=$(rofi -dmenu -i \
       -p "SDR Brightness (0.5-2.0, default 1.0)" \
       -theme "$THEME_FILE" \
       -format "s" \
       -mesg "Controls SDR content brightness in HDR mode")
 
-    if [[ -n "$sdr_brightness" ]] && [[ "$sdr_brightness" =~ ^[0-9]*\.?[0-9]+$ ]]; then
-      monitor_line+=", sdrbrightness, $sdr_brightness"
+    if [[ ! "$sdr_brightness_val" =~ ^[0-9]*\.?[0-9]+$ ]]; then
+      sdr_brightness_val=""
     fi
 
     # SDR saturation (0.5 to 1.5, default 1.0)
-    sdr_saturation=$(rofi -dmenu -i \
+    sdr_saturation_val=$(rofi -dmenu -i \
       -p "SDR Saturation (0.5-1.5, default 1.0)" \
       -theme "$THEME_FILE" \
       -format "s" \
       -mesg "Controls SDR content saturation in HDR mode")
 
-    if [[ -n "$sdr_saturation" ]] && [[ "$sdr_saturation" =~ ^[0-9]*\.?[0-9]+$ ]]; then
-      monitor_line+=", sdrsaturation, $sdr_saturation"
+    if [[ ! "$sdr_saturation_val" =~ ^[0-9]*\.?[0-9]+$ ]]; then
+      sdr_saturation_val=""
     fi
   fi
 fi
 
-echo "Final monitor line: $monitor_line"
+# Build lua monitor block with actual newlines
+build_lua_block() {
+  printf "hl.monitor({\n\toutput = \"%s\",\n\tmode = \"%s\",\n\tposition = \"auto\",\n\tscale = 1" "$selected_monitor" "$clean_resolution"
+  [[ "$selected_bitdepth" != "8" ]] && printf ",\n\tbitdepth = %s" "$selected_bitdepth"
+  [[ "$selected_cm" != "auto" ]] && printf ",\n\tcm = \"%s\"" "$selected_cm"
+  [[ -n "$sdr_brightness_val" ]] && printf ",\n\tsdrbrightness = %s" "$sdr_brightness_val"
+  [[ -n "$sdr_saturation_val" ]] && printf ",\n\tsdrsaturation = %s" "$sdr_saturation_val"
+  printf "\n})\n"
+}
 
-# Update monitors.conf
-if [[ -f "$MONITORS_CONFIG" ]]; then
-  # Check if there's already a line for this monitor
-  if grep -q "^monitor = $selected_monitor," "$MONITORS_CONFIG"; then
-    # Replace existing line
-    sed -i "s|^monitor = $selected_monitor,.*|$monitor_line|" "$MONITORS_CONFIG"
-    echo "Updated existing monitor configuration"
-  else
-    # Add new line
-    echo "$monitor_line" >>"$MONITORS_CONFIG"
-    echo "Added new monitor configuration"
+new_block=$(build_lua_block)
+echo "New monitor block:"
+echo "$new_block"
+
+# Update monitors.lua
+update_lua_config() {
+  local config="$1" monitor="$2" block="$3"
+  local tmp="${config}.tmp" in_block=0 found=0 current=""
+
+  if [[ ! -f "$config" ]]; then
+    mkdir -p "$(dirname "$config")"
+    printf '%s\n' "$block" > "$config"
+    echo "Created new monitors.lua"
+    return
   fi
-else
-  # Create new config file
-  mkdir -p "$(dirname "$MONITORS_CONFIG")"
-  echo "# Monitor configuration" >"$MONITORS_CONFIG"
-  echo "$monitor_line" >>"$MONITORS_CONFIG"
-  echo "Created new monitors.conf"
-fi
+
+  : > "$tmp"
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    if [[ $in_block -eq 0 ]] && [[ "$line" =~ ^[[:space:]]*hl\.monitor\(\{ ]]; then
+      in_block=1
+      current="$line"
+    elif [[ $in_block -eq 1 ]]; then
+      current+=$'\n'"$line"
+      if [[ "$line" =~ ^[[:space:]]*\}\)[[:space:]]*$ ]]; then
+        in_block=0
+        if [[ "$current" == *"output = \"$monitor\""* ]]; then
+          printf '%s\n' "$block" >> "$tmp"
+          found=1
+        else
+          printf '%s\n' "$current" >> "$tmp"
+        fi
+        current=""
+      fi
+    else
+      printf '%s\n' "$line" >> "$tmp"
+    fi
+  done < "$config"
+
+  if [[ $found -eq 0 ]]; then
+    printf '\n%s\n' "$block" >> "$tmp"
+    echo "Added new monitor configuration"
+  else
+    echo "Updated existing monitor configuration"
+  fi
+
+  mv "$tmp" "$config"
+}
+
+update_lua_config "$MONITORS_CONFIG" "$selected_monitor" "$new_block"
 
 # Apply the change immediately using hyprctl
 echo "Applying changes..."
@@ -302,14 +330,12 @@ if [[ "$selected_cm" != "auto" ]]; then
 fi
 
 # Add SDR settings if they were configured
-if [[ "$monitor_line" =~ sdrbrightness ]]; then
-  sdr_brightness=$(echo "$monitor_line" | grep -oP 'sdrbrightness, \K[0-9.]+')
-  hyprctl_cmd+=",sdrbrightness,$sdr_brightness"
+if [[ -n "$sdr_brightness_val" ]]; then
+  hyprctl_cmd+=",sdrbrightness,$sdr_brightness_val"
 fi
 
-if [[ "$monitor_line" =~ sdrsaturation ]]; then
-  sdr_saturation=$(echo "$monitor_line" | grep -oP 'sdrsaturation, \K[0-9.]+')
-  hyprctl_cmd+=",sdrsaturation,$sdr_saturation"
+if [[ -n "$sdr_saturation_val" ]]; then
+  hyprctl_cmd+=",sdrsaturation,$sdr_saturation_val"
 fi
 
 hyprctl keyword monitor "$hyprctl_cmd"
