@@ -1,0 +1,8 @@
+require("lua.monitors")
+require("lua.applications")
+require("lua.environments")
+require("lua.look_n_feel")
+require("lua.input")
+require("lua.keybindings")
+require("lua.windows_n_workspaces")
+require("lua.permissions")

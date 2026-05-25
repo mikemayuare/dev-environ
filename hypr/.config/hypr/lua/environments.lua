@@ -1,0 +1,6 @@
+hl.env("XCURSOR_SIZE", "21")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("SDL_VIDEODRIVER", "x11")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("QT_PASSWORD_RECALL", "1")
