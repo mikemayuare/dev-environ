@@ -4,7 +4,6 @@ selection-background = #393836
 selection-foreground = #c5c9c5
 cursor-color = #c5c9c5
 cursor-text = #181616
-background-opacity = 0.8
 
 palette = 0=#181616
 palette = 1=#c4746e

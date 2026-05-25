@@ -9,7 +9,6 @@
 # Background and foreground colors
 background = #00172e
 foreground = #f6dcac
-background-opacity = 0.8
 window-padding-color = extend
 
 # Standard colors
