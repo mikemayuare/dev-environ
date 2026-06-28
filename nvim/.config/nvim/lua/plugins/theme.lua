@@ -1,17 +1,17 @@
 return {
 	{
-		"alexzeitler/retro-82.nvim",
-		lazy = true,
-		priority = 1000,
-		opts = {
-			transparent = true,
-			terminal_colors = true,
-		},
+		"neanias/everforest-nvim",
+		config = function()
+			require("everforest").setup({
+				background = "medium",
+			})
+			vim.o.background = "dark"
+		end,
 	},
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "retro-82",
+			colorscheme = "everforest",
 		},
 	},
 }
