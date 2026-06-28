@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+name="wezterm mux daemon"
+description="WezTerm persistent multiplexer"
+
+command="/usr/bin/wezterm"
+command_args="start --daemonize"
+command_user="migue"
+pidfile="/run/wezterm-mux.pid"
+
+depend() {
+    need localmount
+}
+
+start_pre() {
+    checkpath --directory --owner migue:migue --mode 0755 /run/user/$(id -u migue)
+}

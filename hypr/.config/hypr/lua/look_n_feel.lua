@@ -57,5 +57,6 @@ hl.config({
 		shadow = {
 			enabled = false, -- the settings are on the theme file, override it here
 		},
+		rounding = 8,
 	},
 })
