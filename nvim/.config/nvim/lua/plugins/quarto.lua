@@ -46,18 +46,21 @@ return {
       vim.keymap.set("n", "<leader>ir", function()
         vim.cmd("!quarto render %")
       end, { desc = "render quarto document" })
-      vim.keymap.set("n", "<leader>io", function()
-        local iron = require("iron.core")
-        -- find if there's a visible python repl window
-        for _, win in ipairs(vim.api.nvim_list_wins()) do
-          local buf = vim.api.nvim_win_get_buf(win)
-          if vim.bo[buf].filetype == "iron" then
-            vim.api.nvim_win_close(win, false)
-            return
-          end
+
+      -- run cell and move to next
+      local function run_cell_and_move_next()
+        runner.run_cell()
+        local cell_end = vim.fn.search("^```\\s*$", "W")
+        if cell_end == 0 then
+          return
         end
-        iron.show_repl("python")
-      end, { desc = "toggle repl window" })
+        local next_start = vim.fn.search("^```{", "W")
+        if next_start ~= 0 then
+          vim.cmd("normal! j")
+        end
+      end
+
+      vim.keymap.set("n", "<leader>in", run_cell_and_move_next, { desc = "run cell and move to next", silent = true })
     end,
   },
 
@@ -91,7 +94,6 @@ return {
       vim.keymap.set("n", "<leader>ii", ":PasteImage<cr>", { desc = "insert [i]mage from clipboard" })
     end,
   },
-
   { -- Preview LaTeX equations inline
     "jbyuki/nabla.nvim",
     keys = {
