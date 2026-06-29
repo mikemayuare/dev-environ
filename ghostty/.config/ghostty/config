@@ -1,4 +1,4 @@
-theme = nord
+theme = retro-82
 font-size = 16
 font-family = Iosevka Nerd Font Mono
 font-feature = liga
@@ -9,6 +9,8 @@ window-padding-y = 16
 # window-decoration = auto
 macos-titlebar-style = hidden
 link-previews = true
+background-opacity = 0.85
+background-blur = macos-glass-clear
 
 
 # unbind new tab since it has no decoration
@@ -17,7 +19,7 @@ link-previews = true
 # Explicitly map the control keys to send the raw ASCII control character.
 # This prevents them from being misinterpreted by macOS/terminal defaults.
 
-# C-h (Left Navigation) -> ASCII 8 (Backspace/BS). 
+# C-h (Left Navigation) -> ASCII 8 (Backspace/BS).
 # This is the most critical key to fix.
 # keybind = ctrl+h=text:\x08
 

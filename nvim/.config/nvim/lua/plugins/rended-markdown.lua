@@ -4,8 +4,10 @@ return {
     opts = {
       code = {
         sign = true,
+        disable_background = true,
         width = "block",
-        right_pad = 1,
+        right_pad = 2,
+        border = "thin",
       },
       heading = {
         enabled = true,
