@@ -3,28 +3,29 @@
 # Keyboard layout switcher for Hyprland
 # Switches between English US and English US International
 
-CONF="$HOME/.config/hypr/input.conf"
 THEME=$(cat "$HOME/.config/rofi/theme")
 
-# Layout definitions: "Display Name|kb_layout|kb_variant"
+# Layout definitions: index maps to kb_layout entry in input.lua
 LAYOUTS=(
-  "English US|us|"
-  "English US International|us|intl"
+  "English US"
+  "English US International"
 )
 LINES=${#LAYOUTS[@]}
-# Read current layout from config
-current_layout=$(grep -oP '(?<=kb_layout = ).*' "$CONF" | tr -d ' ')
-current_variant=$(grep -oP '(?<=kb_variant = ).*' "$CONF" | tr -d ' ')
+
+# Get current active keymap to detect which layout is active
+active_keymap=$(hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap')
+
+# If keymap name contains "Intl", we're on international layout (index 1)
+current_idx=0
+if echo "$active_keymap" | grep -qi "intl"; then
+  current_idx=1
+fi
 
 # Build rofi menu entries, marking the active layout
 menu_entries=""
-for entry in "${LAYOUTS[@]}"; do
-  name="${entry%%|*}"
-  rest="${entry#*|}"
-  layout="${rest%%|*}"
-  variant="${rest##*|}"
-
-  if [[ "$layout" == "$current_layout" && "$variant" == "$current_variant" ]]; then
+for i in "${!LAYOUTS[@]}"; do
+  name="${LAYOUTS[$i]}"
+  if [[ "$i" == "$current_idx" ]]; then
     menu_entries+="  $name\n"
   else
     menu_entries+="$name\n"
@@ -44,20 +45,12 @@ chosen=$(printf "%b" "$menu_entries" | rofi -dmenu \
 # Strip leading whitespace/marker if present
 chosen=$(echo "$chosen" | sed 's/^[[:space:]]*//')
 
-# Find the chosen layout's values and apply
-for entry in "${LAYOUTS[@]}"; do
-  name="${entry%%|*}"
-  rest="${entry#*|}"
-  layout="${rest%%|*}"
-  variant="${rest##*|}"
+# Find chosen layout and switch by index
+for i in "${!LAYOUTS[@]}"; do
+  if [[ "${LAYOUTS[$i]}" == "$chosen" ]]; then
+    hyprctl switchxkblayout all "$i"
 
-  if [[ "$name" == "$chosen" ]]; then
-    sed -i "s/^\([[:space:]]*kb_layout = \).*/\1$layout/" "$CONF"
-    sed -i "s/^\([[:space:]]*kb_variant = \).*/\1$variant/" "$CONF"
-
-    hyprctl reload
-
-    notify-send "Keyboard Layout" "Switched to $name" --expire-time=2000 2>/dev/null || true
+    notify-send "Keyboard Layout" "Switched to ${LAYOUTS[$i]}" --expire-time=2000 2>/dev/null || true
 
     exit 0
   fi
