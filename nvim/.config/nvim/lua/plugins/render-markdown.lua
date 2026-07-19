@@ -55,8 +55,8 @@ return {
         enabled = true,
         converter = "latex2text", -- This matches your checkhealth
         highlight = "RenderMarkdownMath",
-        top_pad = 1,
-        bottom_pad = 1,
+        top_pad = 0,
+        bottom_pad = 0,
         position = "overlay",
       },
     },

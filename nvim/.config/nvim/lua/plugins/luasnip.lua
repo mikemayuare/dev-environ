@@ -1,8 +1,10 @@
-return {
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-  },
+-- Load custom VS Code snippets after lazy.nvim finishes setup
+vim.schedule(function()
+  pcall(function()
+    require("luasnip.loaders.from_vscode").load({
+      paths = vim.fn.stdpath("config") .. "/snippets",
+    })
+  end)
+end)
 
-  require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" }),
-}
+return {}
