@@ -4,6 +4,13 @@ return {
 		name = "catppuccin",
 		lazy = true,
 		priority = 1000,
+		opts = {
+			transparent_background = false,
+			flavor = "frappe",
+			float = {
+				transparent = true,
+			},
+		},
 	},
 	{
 		"LazyVim/LazyVim",

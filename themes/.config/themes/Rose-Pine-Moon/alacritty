@@ -6,38 +6,38 @@ dim_foreground = "#aeadbe"
 
 [colors.cursor]
 text = "#232136"
-cursor = "#c4a7e7"
+cursor = "#e0def4"
 
 [colors.vi_mode_cursor]
 text = "#232136"
-cursor = "#c4a7e7"
+cursor = "#e0def4"
 
 [colors.selection]
 text = "CellForeground"
-background = "#322f49"
+background = "#44415a"
 
 [colors.search.matches]
 foreground = "CellBackground"
-background = "#c4a7e7"
+background = "#9ccfd8"
 
 [colors.normal]
 black = "#232136"
 red = "#eb6f92"
 green = "#95b1ac"
 yellow = "#f6c177"
-blue = "#9ccfd8"
+blue = "#3e8fb0"
 magenta = "#c4a7e7"
-cyan = "#c4a7e7"
+cyan = "#9ccfd8"
 white = "#e0def4"
 
 [colors.bright]
-black = "#322f49"
+black = "#393552"
 red = "#eb6f92"
-green = "#9ccfd8"
+green = "#95b1ac"
 yellow = "#f6c177"
-blue = "#9ccfd8"
+blue = "#3e8fb0"
 magenta = "#c4a7e7"
-cyan = "#c4a7e7"
+cyan = "#9ccfd8"
 white = "#e0def4"
 
 [colors.dim]
@@ -45,7 +45,7 @@ black = "#1b192a"
 red = "#b75671"
 green = "#748a86"
 yellow = "#bf965c"
-blue = "#79a1a8"
+blue = "#306f89"
 magenta = "#9882b4"
-cyan = "#9882b4"
+cyan = "#79a1a8"
 white = "#aeadbe"

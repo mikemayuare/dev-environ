@@ -101,6 +101,81 @@ def parse_cosmic_ron(path):
     return data
 
 
+# ── ghostty theme parser ──
+
+GHOSTTY_THEMES_DIR = Path.home() / ".config" / "ghostty" / "themes"
+
+
+def _normalize_hex(h):
+    """Ensure hex colour has # prefix and is lowercase."""
+    h = h.strip()
+    if not h.startswith("#"):
+        h = "#" + h
+    return h.lower()
+
+
+def _folder_to_ghostty_name(folder_name):
+    """Convert 'Catppuccin-Frappe' to 'catppuccin-frappe'."""
+    return folder_name.lower()
+
+
+def parse_ghostty_theme(path):
+    """Parse a ghostty theme file and return a palette dict.
+
+    Returns same dict shape as build_palette() so callers are interchangeable:
+      bg, fg, selection, cursor, color0..15, dim0..7
+    Returns None if parsing fails.
+    """
+    text = path.read_text()
+
+    # Parse palette entries: palette = N=#hex or palette=N=#hex
+    colors = {}
+    for m in re.finditer(r'^palette\s*=\s*(\d+)\s*=\s*#?([0-9a-fA-F]{6})\b', text, re.MULTILINE):
+        idx = int(m.group(1))
+        colors[idx] = _normalize_hex(m.group(2))
+
+    # Ensure all 16 palette colours are present
+    if len(colors) < 16:
+        return None
+
+    p = {}
+
+    # Parse simple colour keys (ghostty might not define all of them)
+    for key, gkey in [("bg", "background"), ("fg", "foreground"),
+                       ("selection", "selection-background"),
+                       ("cursor", "cursor-color")]:
+        m = re.search(rf'^{re.escape(gkey)}\s*=\s*#?([0-9a-fA-F]{{6}})\b', text, re.MULTILINE)
+        if m:
+            p[key] = _normalize_hex(m.group(1))
+
+    # Must at least have background and foreground
+    if "bg" not in p or "fg" not in p:
+        return None
+
+    # Default fallbacks for optional keys
+    p.setdefault("selection", colors[0])
+    p.setdefault("cursor", p["fg"])
+
+    # Populate color0..15
+    for i in range(16):
+        p[f"color{i}"] = colors[i]
+
+    # Dim colours (darken by 0.78, matching existing logic)
+    for i in range(8):
+        p[f"dim{i}"] = darken_hex(p[f"color{i}"], 0.78)
+
+    return p
+
+
+def find_custom_ghostty_theme(theme_dir_name):
+    """Return parsed palette from custom ghostty theme, or None if not available."""
+    ghostty_name = _folder_to_ghostty_name(theme_dir_name)
+    ghostty_path = GHOSTTY_THEMES_DIR / ghostty_name
+    if ghostty_path.exists():
+        return parse_ghostty_theme(ghostty_path)
+    return None
+
+
 # ── colour value helpers ──
 
 def gcol(data, *keys):
@@ -302,13 +377,26 @@ def main():
     for theme_dir in theme_dirs:
         name = theme_dir.name
 
+        # ── Priority 1: custom ghostty theme ──
+        ghostty_pal = find_custom_ghostty_theme(name)
+        if ghostty_pal is not None:
+            for k in ("bg", "fg", "color0", "color7", "cursor", "selection"):
+                if not ghostty_pal.get(k):
+                    errors.append(f"{name}: missing required key '{k}' in ghostty theme")
+                    break
+            else:
+                write_theme(theme_dir, ghostty_pal, name)
+                continue
+
+        # ── Priority 2: hardcoded special-case (e.g. TokyoNight-Day) ──
         if name in NO_COSMIC:
             write_theme(theme_dir, TOKYONIGHT_DAY, name)
             continue
 
+        # ── Priority 3: cosmic.ron fallback ──
         cosmic = theme_dir / "cosmic.ron"
         if not cosmic.exists():
-            print(f"  SKIP {name}: no cosmic.ron")
+            print(f"  SKIP {name}: no cosmic.ron and no custom ghostty theme")
             continue
 
         data = parse_cosmic_ron(cosmic)
