@@ -1,4 +1,5 @@
-terminal = "GTK_IM_MODULE=simple ghostty"
+-- terminal = "GTK_IM_MODULE=simple ghostty"
+terminal = "kitty"
 fileManager = "cosmic-files"
 menu = "~/.config/rofi/launchers/app_drawer.sh || pkill rofi"
 browser = "zen-browser"
