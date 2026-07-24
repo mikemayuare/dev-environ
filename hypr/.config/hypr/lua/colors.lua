@@ -1,8 +1,8 @@
 hl.config({
   general = {
     col = {
-      active_border = "rgb(83c092)",
-      inactive_border = "rgba(595959aa)",
+      active_border = "rgb(907aa9)",
+      inactive_border = "rgba(9893a566)",
     },
   },
   decoration = {
@@ -12,7 +12,7 @@ hl.config({
       enabled = true,
       range = 8,
       render_power = 3,
-      color = "rgba(83c092aa)",
+      color = "rgba(907aa966)",
     },
     blur = {
       enabled = true,

@@ -22,6 +22,8 @@ alias nv='nvim'
 alias cat='bat'
 alias y='yazi'
 alias k='kubectl'
+alias he='herdr'
+alias hs='herdr --remote 192.168.1.173'
 
 # eza
 if command -v eza &>/dev/null
@@ -35,7 +37,6 @@ end
 fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
-
 
 # uv
 fish_add_path "/home/migue/.local/share/../bin"

@@ -1,0 +1,11 @@
+{
+  "Triple-quoted string": {
+    "prefix": "tri",
+    "body": [
+      "\"\"\"",
+      "$1",
+      "\"\"\""
+    ],
+    "description": "Python triple-quoted string (docstring)"
+  }
+}

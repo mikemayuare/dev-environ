@@ -56,7 +56,7 @@
   "clock": {
     "interval": 1,
     "tooltip": false,
-    "format": "󰥔 {:%A %d %B Week %W  %H:%M:%S}"
+    "format": " {:%A %d %B Week %W  󰥔 %H:%M:%S}"
   },
   "privacy": {
     "icon-spacing": 4,

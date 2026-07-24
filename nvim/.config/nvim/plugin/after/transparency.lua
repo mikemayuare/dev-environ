@@ -52,6 +52,9 @@ local groups = {
   "NotifyWARNBorder",
   "NotifyTRACEBorder",
   "NotifyDEBUGBorder",
+
+  --- Bufferline (Spanning background) ---
+  "BufferLineFill",
 }
 
 for _, name in ipairs(groups) do

@@ -1,10 +1,10 @@
-/* Everforest Dark Hard — Waybar colors */
-@define-color w-bg-main     #272e33;
-@define-color w-bg-module   #374145;
-@define-color w-bg-hover    #414b50;
-@define-color w-txt-main    #d3c6aa;
-@define-color w-accent      #E69875;   /* green — hover / interactive */
-@define-color w-highlight   #83c092;   /* teal — active workspace, tooltip border */
-@define-color w-border      #83c092;
-@define-color w-accent-crit #e67e80;
-@define-color w-accent-warn #dbbc7f;
+/* Rosé Pine Dawn — Waybar colors */
+@define-color w-bg-main      #faf4ed;
+@define-color w-bg-module    #f2e9e1;
+@define-color w-bg-hover     #dfdad9;
+@define-color w-txt-main     #464261;
+@define-color w-accent       #56949f;
+@define-color w-highlight    #d7827e;
+@define-color w-border       #9893a5;
+@define-color w-accent-crit  #b4637a;
+@define-color w-accent-warn  #ea9d34;

@@ -1,16 +1,16 @@
-/* Everforest Dark Hard */
+/* Rosé Pine Dawn */
 :root {
-  --base:     #272e33;
-  --mantle:   #2e383c;
-  --crust:    #1e2326;
-  --surface0: #374145;
-  --surface1: #414b5088;
-  --surface2: #495156;
-  --text:     #d3c6aa;
-  --accent:   #83c092;
+  --base:       #faf4ed;
+  --mantle:     #fffaf3;
+  --crust:      #f8f0e7;
+  --surface0:   #f2e9e1;
+  --surface1:   #dfdad988;
+  --surface2:   #cecacd;
+  --text:       #464261;
+  --accent:     #907aa9;
   --widget-background: var(--surface1);
-  --cc-bg:    var(--widget-background);
+  --cc-bg:      var(--widget-background);
   --noti-bg-alpha: 1;
-  --border:   2px solid var(--accent);
-  --padding:  15px;
+  --border:     2px solid var(--accent);
+  --padding:    15px;
 }

@@ -1,17 +1,18 @@
 return {
 	{
-		"neanias/everforest-nvim",
-		config = function()
-			require("everforest").setup({
-				background = "medium",
-			})
-			vim.o.background = "dark"
-		end,
+		"rose-pine/neovim",
+		lazy = true,
+		priority = 1000,
+		opts = {
+			styles = {
+				transparency = true,
+			},
+		},
 	},
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "everforest",
+			colorscheme = "rose-pine-dawn",
 		},
 	},
 }

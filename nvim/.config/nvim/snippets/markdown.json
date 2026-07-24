@@ -1,0 +1,48 @@
+{
+  "Quarto YAML frontmatter": {
+    "prefix": "qyaml",
+    "body": [
+      "---",
+      "title: \"${1:Notebook Title}\"",
+      "subtitle: \"${2:Sub-title/Project}\"",
+      "author: \"${3:Your Name}\"",
+      "date: last-modified",
+      "format:",
+      "  html:",
+      "    toc: true",
+      "    toc-location: left",
+      "    theme: ${4:cosmo}",
+      "    code-fold: show",
+      "    code-tools: true",
+      "    df-print: paged",
+      "    embed-resources: true",
+      "execute:",
+      "  echo: true",
+      "  warning: false",
+      "---",
+      "$0"
+    ],
+    "description": "Quarto notebook YAML header"
+  },
+  "Quarto Python block": {
+    "prefix": "py",
+    "body": [
+      "```{python}",
+      "#| label: ${1:fig-example}",
+      "#| code-summary: \"${2:Description}\"",
+      "",
+      "$0",
+      "```"
+    ],
+    "description": "Quarto Python code block"
+  },
+  "Triple-quoted string": {
+    "prefix": "tri",
+    "body": [
+      "\"\"\"",
+      "$1",
+      "\"\"\""
+    ],
+    "description": "Python triple-quoted string (docstring)"
+  }
+}
