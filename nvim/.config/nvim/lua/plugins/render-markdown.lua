@@ -52,7 +52,7 @@ return {
         enabled = true,
       },
       latex = {
-        enabled = true,
+        enabled = false,
         converter = "latex2text", -- This matches your checkhealth
         highlight = "RenderMarkdownMath",
         top_pad = 0,
