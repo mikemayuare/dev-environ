@@ -1,19 +1,6 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    dashboard = {
-      preset = {
-        header = [[
-
-          ███╗   ███╗██╗██╗  ██╗███████╗██╗   ██╗██╗███╗   ███╗          Z
-          ████╗ ████║██║██║ ██╔╝██╔════╝██║   ██║██║████╗ ████║      Z    
-          ██╔████╔██║██║█████╔╝ █████╗  ██║   ██║██║██╔████╔██║   z       
-          ██║╚██╔╝██║██║██╔═██╗ ██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-          ██║ ╚═╝ ██║██║██║  ██╗███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║           
-          ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝           
-]],
-      },
-    },
     -- Snacks Explorer
     explorer = {
       hidden = false,
@@ -55,6 +42,7 @@ return {
       },
       -- Enable hidden files globally for picker
       hidden = true,
+      ui_select = true,
       sources = {
         explorer = {
           layout = {

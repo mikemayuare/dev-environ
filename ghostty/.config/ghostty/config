@@ -1,4 +1,4 @@
-theme = retro-82
+theme = Catppuccin Frappe
 font-size = 16
 font-family = Iosevka Nerd Font Mono
 font-feature = liga
@@ -9,8 +9,8 @@ window-padding-y = 16
 # window-decoration = auto
 macos-titlebar-style = hidden
 link-previews = true
-background-opacity = 0.85
-background-blur = macos-glass-clear
+background-opacity = 0.95
+background-blur = true
 
 
 # unbind new tab since it has no decoration

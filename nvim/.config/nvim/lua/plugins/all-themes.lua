@@ -78,4 +78,9 @@ return {
     lazy = true,
     priority = 1000,
   },
+  {
+    "ficd0/ashen.nvim",
+    lazy = true,
+    priority = 1000,
+  },
 }

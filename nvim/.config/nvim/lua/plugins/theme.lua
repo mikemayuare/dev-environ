@@ -1,17 +1,20 @@
 return {
   {
-    "alexzeitler/retro-82.nvim",
-    lazy = true,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     opts = {
-      transparent = true,
-      terminal_colors = true,
+      transparent_background = true,
+      flavor = "frappe",
+      float = {
+        transparent = true,
+      },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "retro-82",
+      colorscheme = "catppuccin-frappe", -- this is what the hot-reload reads
     },
   },
 }
